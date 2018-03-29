@@ -1,0 +1,1 @@
+19:33:36 - Error - Warning: openssl_x509_read(): supplied parameter cannot be coerced into an X509 certificate! in /var/www/html/kivul_ecommerce/app/code/Transbank/Webpay/lib/libwebpay/soap/xmlseclibs.php on line 397

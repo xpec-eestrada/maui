@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="category.view.container">
+            <container name="category.image.xpec" htmlTag="div" htmlClass="category-image-xpec" before="-" />
+        </referenceContainer>
+        <move element="category.view.container" destination="page.top" before="breadcrumbs" />
+        <move element="page.main.title" destination="category.image.xpec" after="-" />
+        <move element="category.image" destination="category.image.xpec" before="-" />
+    </body>
+</page>

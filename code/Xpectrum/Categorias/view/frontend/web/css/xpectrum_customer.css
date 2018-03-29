@@ -1,0 +1,57 @@
+.box.box-billing-address,
+.block.block-reorder{
+    display: none;
+}
+.box.box-shipping-address{
+    float: left !important;
+}
+.ui-datepicker{
+    width: 252px;
+}
+.field.company{
+    display: none;
+}
+.field.fax{
+    display:none;
+}
+.field.zip{
+    display: none;
+}
+.field.country{
+    display: none !important;
+}
+.field.field-nombrecomuna{
+    display: none;
+}
+#street_2{
+    display: none;
+}
+.field.city{
+    display: none;
+}
+.customer-account-create div.field-dob > label::after,
+.customer-account-create div.gender > label::after,
+.customer-account-create div.field-rut > label::after,
+.customer-account-create div.field-telefono > label::after{
+    content: '*';
+    color: #ee7b1f;
+    font-size: 16px;
+    margin: 0 0 0 5px;
+}
+
+.customer-account-edit div.field-dob > label::after,
+.customer-account-edit div.gender > label::after,
+.customer-account-edit div.field-rut > label::after,
+.customer-account-edit div.field-telefono > label::after{
+    content: '*';
+    color: #e02b27;
+    font-size: 1.2rem;
+    margin: 0 0 0 5px;
+}
+.customer-address-form div.region > label::after,
+.customer-address-form div.field-comuna > label::after{
+    content: '*';
+    color: #e02b27;
+    font-size: 1.2rem;
+    margin: 0 0 0 5px;
+}

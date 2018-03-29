@@ -1,0 +1,1074 @@
+@font-face{
+    src:url("../fonts/Axis.otf") format("opentype");
+    font-family:Axis;
+}
+@font-face{
+    src:url("../fonts/Roboto-Regular.ttf");
+    font-family:Roboto;
+}
+@font-face{
+    src:url("../fonts/Roboto-Bold.ttf");
+    font-family:Roboto;
+    font-weight:bold;
+}
+html{
+    overflow-x:hidden;
+}
+*{box-sizing:border-box;font-family:Roboto;}
+.green{color:#1db674;font-family:unset;}
+.blue{color:#0b0a2a;font-family:unset;}
+.white{color:#fff;font-family:unset;}
+.beige{color:#f2f2f2;font-family:unset;}
+.center{text-align:center;}
+.right{text-align:right;}
+.left{text-align:left;}
+.relative{position:relative;}
+.radius{border-radius:7px;}
+
+h1{
+    font-size:40px;
+}
+body{
+    margin:0;
+}
+a.bigBtn{
+    background:#0b0a2a;
+    border-top:1px solid #000;
+    border-radius:5px;
+    text-decoration:none;
+    font-family:Axis;
+    padding:15px 25px;
+    font-size:24px;
+    text-transform:uppercase;
+    display:inline-block;
+    margin:15px 0;
+    border-bottom:1px solid #7D7C86;
+}
+a.bigButton_green{
+    background:#1db674;
+    color:#fff;
+    text-decoration:none;
+    border-top:1px solid #14925c;
+    padding:7px 35px;
+    border-radius:5px;
+    font-family:Axis;
+    text-transform:uppercase;
+    font-size:24px;
+    margin:30px 0;
+    display:inline-block;
+}
+a.bigBtn:active, a.bigButton_green:active{
+    position:relative;
+    top:1px;
+}
+a.bigBtn span{
+    font-family:unset;
+}
+.container{
+    max-width:1280px;
+    width:100%;
+    display:block;
+    margin:0 auto;
+}
+header{
+    background:#fff;
+    padding:0;
+    display:inline-block;
+    width:100%;
+    position:relative;
+}
+header .logo{
+    position:absolute;
+    top:14px;
+    display:inline-block;
+    padding-left:20px;
+}
+header .logo img{
+    max-width:400px;
+    height: 100%;
+}
+header .menu{
+    display:block;
+}
+header .menu ul{
+    position:static;
+    padding:0 0 0 20px;
+    margin:0;
+    display:inline-block;
+    text-align:right;
+    width:100%;
+}
+header .menu ul li{
+    display:inline-block;
+}
+header .menu ul li a{
+    font-weight:bold;
+    display:block;
+    color:#000;
+    text-decoration:none;
+    padding:25px 20px;
+    transition:0.15s;
+    font-size:20px;
+}
+header .menu ul li a:hover, header .menu ul li a.active{
+    color:#1db674; 
+}
+header .menu ul li.phoneContact a:before,
+header .phoneContactMobile a:before{
+    content:"";
+    background-image:url("../images/icons/phoneIcon.png");
+    display:inline-block;
+    background-size:cover;
+    position:relative;
+    float:left;
+    top:-2px;
+    margin-right:10px;
+    width:30px;
+    height:30px;
+}
+header .menu ul li.phoneContact a{
+    background-color:#1db674;
+    color:#fff;
+}
+content{
+    display:inline-block;
+    width:100%;
+}
+content .mainBlock_bg{
+    background-image:url("../images/home_top.jpg");
+    background-size:cover;
+    background-attachment:fixed;
+    display:inline-block;
+    width:100%;
+    padding:60px 20px 70px;
+}
+content .mainBlock_bg.contact, content .mainBlock_bg.wwbh{
+    text-align:center;
+    background-image:url("../images/wherewebuy_top.jpg");
+}
+content .mainBlock_bg h1{
+    padding:0 10px;
+    font-weight:bold;
+    font-family:Axis;
+    text-align:center;
+    text-transform:uppercase;
+}
+content .mainBlock_bg p{
+    padding:0 10px;
+    text-align:center;
+    font-size:22px;
+    max-width:470px;
+    margin:0 auto;
+    line-height:1.8em;
+}
+content .mainBlock_bg.wwbh p{
+    max-width:100%;
+}
+content .mainBlock_bg.contact p{
+    max-width:600px;
+}
+content .mainBlock_bg.contact p>a{
+    text-decoration:none;
+}
+content .mainBlock_bg .bigBox_form{
+    display:inline-block;
+    margin-top:50px;
+    background:#fff;
+    border-radius:5px;
+}
+content .mainBlock_bg.contact .bigBox_form{
+    width:80%;
+    margin:0 auto;
+    display:block;
+    position:relative;
+    margin-top:-50px;
+    top:120px;
+}
+content .mainBlock_bg .bigBox_form .green_box{
+    background:#1db674;
+    display:inline-block;
+    width:100%;
+    padding:20px 20px 0;
+    border-top:2px solid #1a9c64;
+}
+content .mainBlock_bg.contact .bigBox_form .green_box{
+    padding:40px 20px;
+}
+content .mainBlock_bg .bigBox_form .green_box h1, content .mainBlock_bg .bigBox_form .white_box h1{
+    font-size:35px;
+    margin:0 0 10px;
+}
+content .mainBlock_bg .bigBox_form .green_box h2{
+    text-align:center;
+    text-transform:uppercase;
+    font-family:Axis;
+    font-size:27px;
+    margin-bottom:0px;
+}
+content .mainBlock_bg .bigBox_form .green_box p{
+    margin-bottom:15px;
+    font-size:24px;
+}
+content .mainBlock_bg .bigBox_form .green_box a.tel{
+    padding:12px;
+    margin-left:-20px;
+    margin-right:-20px;
+    background:#F3D01C;
+    font-size:45px;
+    font-family:Axis;
+    text-decoration:none;
+    text-align:center;
+    display:block;
+}
+content .mainBlock_bg .bigBox_form .green_box ul{
+    margin:0 0 30px 0;
+    padding:0 0 0 90px;
+    text-align:left;
+    list-style-position:inside;
+    font-size:30px;
+    color:#0b0a2a;
+}
+content .mainBlock_bg .bigBox_form .green_box ul li span{
+    font-family:Axis;
+    text-transform:uppercase;
+}
+content .mainBlock_bg .bigBox_form .white_box{
+    padding:20px;
+    display:inline-block;
+    width:100%;
+    border-top:2px solid #c1c1c1;
+    border-top-right-radius:5px;
+}
+content .mainBlock_bg .bigBox_form .white_box h1{
+    margin-bottom:30px;
+}
+content .mainBlock_bg .bigBox_form .white_box form{
+    max-width:500px;
+    display:block;
+    margin:20px auto 0;
+    width: 100%;
+}
+content .mainBlock_bg .bigBox_form .white_box .mainFormHome{
+    display:block;
+}
+content .mainBlock_bg .bigBox_form .white_box form .form-inputs{
+    padding:0 10px 15px 10px;
+}
+content .mainBlock_bg .bigBox_form .white_box form .form-inputs input{
+    font-weight:bold;
+    width:100%;
+    display:inline-block;
+    background:#f2f2f2;
+    border-radius:5px;
+    border:0;
+    padding:10px;
+    color:#0b0a2a;
+    font-size:16px;
+    outline:none;
+}
+content .mainBlock_bg .bigBox_form .white_box form .form-inputs input[type="submit"]{
+    background:#1db674;
+    color:#fff;
+    font-family:Axis;
+    text-transform:uppercase;
+    font-size:26px;
+    cursor:pointer;
+    outline:none;
+}
+content .mainBlock_bg .bigBox_form .white_box form .form-inputs input[type="submit"]:active{
+    position:relative;
+    top:1px;
+}
+content .mainBlock_bg.contact .bigBox_form .green_box form{
+    max-width:550px;
+    display:block;
+    margin:0 auto;
+}
+content .mainBlock_bg.contact .bigBox_form .green_box form input,
+content .mainBlock_bg.contact .bigBox_form .green_box form textarea{
+    width:100%;
+    padding:10px 15px;
+    border-radius:5px;
+    border:0;
+    resize:none;
+    margin-bottom:10px;
+    font-size:20px;
+}
+content .mainBlock_bg.contact .bigBox_form .green_box form input[type="submit"]{
+    background:#0b0a2a;
+    border-top:1px solid #000;
+    color:#fff;
+    font-family:Axis;
+    text-transform:uppercase;
+    font-size:24px;
+    max-width:400px;
+    display:block;
+    margin:25px auto 0;
+}
+content .section_faqs{
+    display:inline-block;
+    width:100%;
+    padding:40px 20px;
+    background:#fff;
+}
+content .section_faqs.grey{
+    background:#f1f1f1;
+    text-align:center;
+}
+content .section_faqs.grey h1{
+    text-transform:uppercase;
+    font-family:Axis;
+    text-decoration:none;
+}
+content .section_faqs.grey p{
+    padding:0 30px;
+    font-size:20px;
+    display:block;
+    margin:0 auto 30px auto;
+}
+content .section_faqs ul#faqsItems{
+    padding:0;
+    margin:0;
+}
+content .section_faqs ul#faqsItems>li{
+    font-family:Axis;
+    text-transform:uppercase;
+    font-size:30px;
+    list-style:none;
+    cursor:pointer;
+    margin-bottom:40px;
+}
+content .section_faqs ul#faqsItems>li:before{
+    content:"+";
+    text-align:center;
+    line-height:1.8em;
+    width:50px;
+    height:50px;
+    display:inline-block;
+    border:4px solid #1db674;
+    background-color:#1db674;
+    color:#fff;
+    border-radius:5px;
+    margin-right:30px;
+    vertical-align:middle;
+}
+content .section_faqs ul#faqsItems>li.active:before{
+    content:"\2212";
+    background-color:#f1f1f1;
+    color:#1db674;
+}
+content .section_faqs ul#faqsItems>li>ul{
+    font-size:20px;
+    text-transform:initial;
+    margin:20px 0;
+    list-style:none;
+    padding-left:90px;
+    cursor:initial;
+    display:none;
+}
+content .section_faqs ul#faqsItems>li.active>ul{
+    display:block;
+}
+content .section_selling{
+    display:inline-block;
+    width:100%;
+    text-align:center;
+    padding:40px 20px;
+    background:#fff;
+}
+content .section_selling h1{
+    text-transform:uppercase;
+    font-family:Axis;
+    text-decoration:none;
+}
+content .section_selling ul{
+    list-style:none;
+    display:inline-block;
+    width:100%;
+    padding-left:30%;
+    text-align:left;
+}
+content .section_selling ul li{
+    font-size:25px;
+    text-transform:uppercase;
+    margin-bottom:20px;
+    line-height:1.8em;
+}
+content .section_selling ul li:before{
+    content:"";
+    background-image:url("../images/icons/checkmark.png");
+    display:inline-block;
+    width:45px;
+    height:45px;
+    background-size:65px;
+    background-position:center;
+    float:left;
+    margin-right:10px;
+}
+content .section_helpYou{
+    display:inline-block;
+    width:100%;
+    background:#f1f1f1;
+    padding:40px 20px;
+    text-align:center;
+}
+content .section_helpYou h1{
+    text-transform:uppercase;
+    font-family:Axis;
+    text-decoration:none;
+}
+content .section_helpYou p{
+    padding:0 30px;
+    font-size:20px;
+    display:block;
+    margin:0 auto 30px auto;
+}
+content .section_helpYou ul{
+    display:inline-block;
+    width:100%;
+    list-style:none;
+    padding:0;
+    text-align:left;
+    padding-left:20%;
+}
+content .section_helpYou ul li{
+    font-size:30px;
+    font-family:Axis;
+    text-transform:uppercase;
+    padding:0 20px;
+    min-height:70px;
+    vertical-align:middle;
+    padding-left:85px;
+    position:relative;
+}
+content .section_helpYou ul li span{
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
+}
+content .section_helpYou ul li:not(:last-child){
+    margin-bottom:40px;
+}
+content .section_helpYou ul li:before{
+    content:"";
+    background-size:cover;
+    width:70px;
+    height:70px;
+    vertical-align:middle;
+    display:inline-block;
+    position:absolute;
+    left:0;
+}
+content .section_helpYou ul li.pay:before{
+    background-image:url("../images/icons/1.png");
+}
+content .section_helpYou ul li.tool:before{
+    background-image:url("../images/icons/2.png");
+}
+content .section_helpYou ul li.lock:before{
+    background-image:url("../images/icons/3.png");
+}
+content .section_questions{
+    display:inline-block;
+    width:100%;
+    background:#fff;
+    padding:40px 20px;
+    text-align:center;
+}
+content .section_questions h1{
+    margin:0;
+    font-family:Axis;
+    text-transform:uppercase;
+}
+content .section_questions p{
+    display:inline-block;
+    width:100%;
+    margin:30px 0 20px;
+    font-size:25px;
+    max-width:700px;
+}
+content .section_questions p a{
+    text-decoration:none;
+}
+content .section_contact{
+    display:inline-block;
+    width:100%;
+    background:#fff;
+    padding:60px 20px;
+    text-align:center;
+}
+content .section_contact h1, content .section_contact h1 a{
+    text-transform:uppercase;
+    font-family:Axis;
+    text-decoration:none;
+}
+content .section_work{
+    display:inline-block;
+    background:#fff;
+    width:100%;
+    padding:30px 20px;
+}
+content .section_work h1{
+    text-transform:uppercase;
+    font-family:Axis;
+    text-align:center;
+}
+content .section_work p{
+    text-align:center;
+    padding:0 30px;
+    font-size:20px;
+    max-width:900px;
+    display:block;
+    margin:0 auto 30px auto;
+}
+content .section_work .stepsWork{
+    text-align:center;
+    margin:40px 0;
+    display:inline-block;
+    width:100%;
+}
+content .section_work .stepsWork img{
+    width:100px;
+}
+content .section_work .stepsWork h2{
+    text-transform:uppercase;
+    font-weight:normal;
+    letter-spacing:0.02em;
+    padding:0 10px;
+}
+content .section_hwdi{
+    background:#f2f2f2;
+    display:inline-block;
+    padding:20px;
+    width:100%;
+}
+content .section_hwdi h1{
+    margin:10px;
+    text-transform:uppercase;
+    font-family:Axis;
+    text-align:center;
+}
+content .section_hwdi p{
+    text-align:center;
+    font-size:23px;
+}
+content .section_stories{
+    background:#fff;
+    padding:20px;
+    display:inline-block;
+    width:100%;
+}
+content .section_stories h1{
+    margin:10px;
+    text-transform:uppercase;
+    text-align:center;
+    font-family:Axis;
+}
+content .mainBlock_bg.wwbh .buyHousesBox{
+    max-width:900px;
+    display:inline-block;
+    width:100%;
+    margin:50px 0;
+    text-align:center;
+    position:relative;
+    padding:0 50px;
+}
+content .mainBlock_bg.wwbh .buyHousesBox:before{
+    content:"1.";
+    display:inline-block;
+    color:#fff;
+    font-size:40px;
+    font-family:Axis;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    left:0;
+}
+content .mainBlock_bg.wwbh .buyHousesBox .buyHouses_button{
+    width:200px;
+    height:200px;
+    display:inline-block;
+    border-radius:50%;
+    background-color:#8ADCB8;
+    color:#0b0a2a;
+    font-family:Axis;
+    text-transform:uppercase;
+    font-size:22px;
+    transition:0.2s;
+    position:relative;
+}
+content .mainBlock_bg.wwbh .buyHousesBox .buyHouses_button.active{
+    pointer-events:none;
+}
+content .mainBlock_bg.wwbh .buyHousesBox .buyHouses_button:hover,
+content .mainBlock_bg.wwbh .buyHousesBox .buyHouses_button.active{
+    background:#1db674;
+    color:#fff;
+    cursor:pointer;
+}
+content .mainBlock_bg.wwbh .buyHousesBox .buyHouses_button>span{
+    font-family:inherit;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    left:0;
+    right:0;
+}
+content .mainBlock_bg.wwbh .form_wwbh{
+    display:block;
+    margin:0 auto;
+    max-width:900px;
+}
+content .mainBlock_bg.wwbh .form_wwbh select,
+content .mainBlock_bg.wwbh .form_wwbh input{
+	background-color:#fff;
+    width:100%;
+    padding:15px 10px;
+    font-size:24px;
+    border-radius:7px;
+    border:0;
+    text-align:center;
+    text-align-last:center;
+    outline:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    position:relative;
+}
+content .mainBlock_bg.wwbh .form_wwbh select{
+    padding-right:50px;
+    background-image:url("../images/icons/dropdown.png");
+    background-size:25px;
+    background-repeat:no-repeat;
+    background-position:right 15px center;
+}
+content .mainBlock_bg.wwbh .form_wwbh .col-md-12,
+content .mainBlock_bg.wwbh .form_wwbh .col-md-6{
+    position:relative;
+    z-index:0;
+    margin-bottom:40px;
+    padding:0 60px;
+}
+content .mainBlock_bg.wwbh .form_wwbh .userName{
+    padding-right:10px;
+}
+content .mainBlock_bg.wwbh .form_wwbh .userPhone{
+    padding-left:10px;
+}
+content .mainBlock_bg.wwbh .form_wwbh .residenceNumber:before{
+    content:"2.";
+    display:inline-block;
+    color:#fff;
+    font-size:40px;
+    font-family:Axis;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    left:10px;
+    z-index:1;
+}
+content .mainBlock_bg.wwbh .form_wwbh .addressNumber:before{
+    content:"3.";
+    display:inline-block;
+    color:#fff;
+    font-size:40px;
+    font-family:Axis;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    left:10px;
+    z-index:1;
+}
+content .mainBlock_bg.wwbh .form_wwbh .buyHouses_sell{
+    background:#1db674;
+    border:0;
+    border-top:1px solid #158c59;
+    color:#fff;
+    font-family:Axis;
+    font-size:24px;
+    text-transform:uppercase;
+    padding:10px 28px;
+    border-radius:6px;
+    display:block;
+    margin:0 auto;
+    cursor:pointer;
+    outline:none;
+    max-width:400px;
+    width:100%;
+}
+content .mainBlock_bg.wwbh .form_wwbh .buyHouses_sell:active{
+    position:relative;
+    top:1px;
+}
+content .mainBlock_bg.wwbh .form_wwbh select option{
+    text-align:center;
+}
+content .section_page{
+    background-color:#f1f1f1;
+    display:inline-block;
+    width:100%;
+    padding:60px 20px;
+}
+content .section_page .destacada{
+    width:100%;
+    height: 100%;
+}
+content .section_page .pageText{
+    padding-left:40px;
+}
+content .section_page h1{
+    text-transform:uppercase;
+    font-family:Axis;
+    margin-top:0;
+    margin-bottom:40px;
+}
+content .section_page p{
+    font-size:20px;
+    margin:0 0 25px 0;
+}
+footer{
+    background:#0b0a2a;
+    width:100%;
+    padding:80px 20px;
+    color:#fff;
+    float:left;
+}
+footer h1{
+    margin:0 0 40px;
+    font-weight:normal;
+    font-size:28px;
+}
+footer a{
+    color:inherit;
+    text-decoration:none;
+}
+footer .socialBtns{
+    display:inline-block;
+    width:50px;
+    height:50px;
+    background-size:cover;
+    margin:0 5px 5px 0;
+}
+footer .socialBtns.fb{
+    background-image:url("../images/icons/fb_icon.png");
+}
+footer .socialBtns.ig{
+    background-image:url("../images/icons/ig_icon.png");
+}
+footer .socialBtns.yt{
+    background-image:url("../images/icons/yt_icon.png");
+}
+footer .miniHouseFooter{
+    width:90px;
+    margin-left:-12px;
+}
+footer .miniHouseFooter+p{
+    margin-top:0;
+}
+/*Otros*/
+.toggle, #closeMenu, .phoneContactMobile{
+    display:none;
+}
+div.wpcf7-response-output{
+    display:inline-block !important;
+    width:100%;
+    margin:0;
+}
+.form_wwbh div.wpcf7-response-output{
+    color:#fff;
+}
+/*Grid*/
+.col-md-3{
+    width:25%;
+    float:left;
+}
+.col-md-4{
+    width:33.333%;
+    float:left;
+}
+.col-md-5{
+    width:41.666%;
+    float:left;
+}
+.col-md-6{
+    width:50%;
+    float:left;
+}
+.col-md-7{
+    width:58.333%;
+    float:left;
+}
+.col-md-8{
+    width:66.666%;
+    float:left;
+}
+.col-md-12{
+    width:100%;
+    float:left;
+}
+
+@media screen and (max-width:1360px){
+    .col-md-5{
+        width:46%;
+    }
+    .col-md-7{
+        width:54%;
+    }
+    content .mainBlock_bg .bigBox_form .green_box h1, content .mainBlock_bg .bigBox_form .white_box h1{
+        font-size:30px;
+    }
+}
+@media screen and (max-width:1280px){
+    header .logo img{
+        max-width:300px;
+    }
+    header .menu ul li a{
+        font-size:18px;
+        padding:22px 20px;
+    }
+}
+@media screen and (max-width:1150px){
+    header .menu ul li a{
+        padding: 22px 14px;
+    }
+    content .mainBlock_bg .bigBox_form .green_box ul{
+        padding:0 0 0 60px;
+    }
+    .col-md-5, .col-md-7{
+        width:50%;
+    }
+    header .logo{
+        background-image:url("../images/logo.png");
+        background-size:cover;
+        background-position:center left;
+        left:20px;
+        background-color:#fff;
+        width:30px;
+        height:40px;
+        padding:0;
+        display:inline-block;
+    }
+    header .logo img{
+        opacity:0;
+        width:30px;
+        height:80px;
+    }
+}
+@media screen and (max-width:950px){
+    content .mainBlock_bg .bigBox_form .green_box ul{
+        padding:0 0 0 30px;
+    }
+    content .mainBlock_bg .bigBox_form .green_box h1, content .mainBlock_bg .bigBox_form .white_box h1{
+        font-size:25px;
+    }
+    content .mainBlock_bg .bigBox_form .green_box ul li span{
+        font-size:25px;
+    }
+    content .mainBlock_bg .bigBox_form .green_box p{
+        font-size:20px;
+    }
+}
+@media screen and (max-width:850px){
+    .col-md-5, .col-md-7{
+        width:100%;
+    }
+    content .mainBlock_bg .bigBox_form .white_box form{
+        max-width:100%;
+    }
+    content .mainBlock_bg .bigBox_form .green_box ul{
+        padding:0 0 0 30%;
+    }
+    content .mainBlock_bg .bigBox_form .green_box{
+        border-radius:5px;
+    }
+    content .mainBlock_bg .bigBox_form .white_box{
+        border-top:0;
+    }
+    header .menu ul li a{
+        font-size:16px;
+    }
+    .col-md-3{
+        width:50%;
+    }
+}
+@media screen and (max-width:768px){
+    content .section_selling ul, content .section_helpYou ul{
+        padding:0 0 0 15%;
+    }
+    content .mainBlock_bg.wwbh .buyHousesBox .buyHouses_button{
+        width:150px;
+        height:150px;
+        font-size:20px;
+    }
+    #closeMenu, .toggle{
+        display:block;
+    }
+    header .menu ul li.phoneContact{
+        display:none;
+    }
+    .phoneContactMobile{
+        position:absolute;
+        top:0;
+        right:77px;
+        display:block;
+        background:#1db674;
+        padding:20px;
+        font-size:21px;
+    }
+    .phoneContactMobile a{
+        color:#fff;
+        text-decoration:none;
+        font-weight:bold;
+    }
+    .toggle:active{
+        top:6px;
+    }
+    li#closeMenu:active{
+        top:-9px;
+    }
+    header .menu ul{
+        transition:0.6s;
+        position:fixed;
+        z-index:1;
+        background:#fff;
+        top:0;
+        bottom:0;
+        left:-100%;
+        padding:20px;
+        display:table;
+        height:100%;
+    }
+    header .menu ul li{
+        display:block;
+        text-align:center;
+        margin-bottom:15px;
+    }
+    header .menu ul li:first-child{
+        margin-top:20%;
+    }
+    header .menu ul li a{
+        font-size:25px;
+    }
+    header .menu ul li#closeMenu{
+        position:absolute;
+        top:-10px;
+        font-size:80px;
+        right:15px;
+        margin:0;
+        cursor:pointer;
+    }
+    header{
+        height:65px;
+    }
+    .toggle{
+        position:absolute;
+        right:20px;
+        top:5px;
+        font-size:40px;
+        color:#0b0a2a;
+        cursor:pointer;
+    }
+    content .section_faqs ul#faqsItems>li>ul{
+        padding:0;
+    }
+    content .section_contact h1, content .section_contact h1 a{
+        font-size:30px;
+    }
+}
+@media screen and (max-width:680px){
+    content .mainBlock_bg.wwbh .buyHousesBox:before{
+        display:none;
+    }
+    content .mainBlock_bg.wwbh .buyHousesBox{
+        padding:0 5px;
+    }
+    content .mainBlock_bg.wwbh .buyHousesBox .buyHouses_button{
+        width:100px;
+        height:100px;
+        font-size:16px;
+    }
+    footer .col-md-4{
+        width:50%;
+        min-height:200px;
+    }
+    footer .col-md-4:nth-of-type(3){
+        width:100%;
+        text-align:center;
+        min-height:0px;
+    }
+    content .mainBlock_bg.contact .bigBox_form{
+        width:100%;
+    }
+}
+@media screen and (max-width:550px){
+    content .section_helpYou ul li{
+        padding:0;
+    }
+    content .section_selling ul, content .section_helpYou ul{
+        padding:0 20px;
+    }
+    content .mainBlock_bg.wwbh .form_wwbh .residenceNumber:before,
+    content .mainBlock_bg.wwbh .form_wwbh .addressNumber:before{
+        display:none;
+    }
+    content .mainBlock_bg.wwbh .form_wwbh .userPhone, content .mainBlock_bg.wwbh .form_wwbh .userName, content .mainBlock_bg.wwbh .form_wwbh .col-md-12{
+        padding:0 10px;
+    }
+    .col-md-5, .col-md-7, .col-md-4, footer .col-md-4, .col-md-3, .col-md-6, .col-md-8{
+        width:100%;
+    }
+    content .mainBlock_bg.wwbh .buyHousesBox .col-md-4{
+        width:33.333%;
+    }
+    footer .col-md-4{
+        text-align:center;
+        margin-bottom:40px;
+        min-height:0;
+    }
+    content .mainBlock_bg .bigBox_form .green_box ul{
+        padding:0 0 0 20px;
+    }
+    content .section_page .pageText{
+        padding:20px 0 0;
+    }
+    content .section_faqs ul#faqsItems>li:before{
+        width:40px;
+        height:40px;
+        line-height:1.5em;
+        margin-right:20px;
+    }
+    content .section_faqs ul#faqsItems>li{
+        font-size:25px;
+    }
+    content .section_contact h1, content .section_contact h1 a{
+        font-size:22px;
+    }
+
+}
+@media screen and (max-width:440px){
+    content .mainBlock_bg{
+        padding:30px 0;
+    }
+    content .section_contact h1, content .section_contact h1 a{
+        font-size:18px;
+    }
+    content .section_contact{
+        padding-top:100px;
+    }
+    content .mainBlock_bg .bigBox_form,
+    content .mainBlock_bg .bigBox_form .green_box{
+        border-radius:0;
+    }
+    content .mainBlock_bg .bigBox_form .green_box a.tel{
+        font-size:30px;
+    }
+    content .mainBlock_bg .bigBox_form .white_box{
+        padding:20px 0;
+    }
+    content .mainBlock_bg .bigBox_form .green_box ul{
+        padding:0;
+    }
+    content .mainBlock_bg .bigBox_form .white_box form .form-inputs{
+        padding:0 5px 15px;
+    }
+}

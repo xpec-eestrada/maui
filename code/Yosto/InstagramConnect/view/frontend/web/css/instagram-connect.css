@@ -1,0 +1,11 @@
+.column.main {
+     width: 100%;
+ }
+
+.ins_image_info:hover {
+    opacity: 1;
+}
+
+.page-bottom {
+    width: 100% !important;
+}

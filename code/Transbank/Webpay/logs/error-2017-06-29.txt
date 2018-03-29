@@ -1,0 +1,1 @@
+19:48:36 - Error - Warning: fopen(/var/www/html/kivul_ecommerce/app/code/Transbank/Webpay/lib/libwebpay/../../logs/webpay-2017-06-29.txt): failed to open stream: Permission denied in /var/www/html/kivul_ecommerce/app/code/Transbank/Webpay/lib/libwebpay/webpay-normal.php on line 289

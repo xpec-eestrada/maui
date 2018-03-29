@@ -1,0 +1,6 @@
+18:32:47 - Error - Warning: DOMDocument::loadXML(): Empty string supplied as input in /home/maui/public_html/app/code/Transbank/Webpay/lib/libwebpay/soap/soapclient.php on line 53
+18:36:03 - Error - Warning: DOMDocument::loadXML(): Empty string supplied as input in /home/maui/public_html/app/code/Transbank/Webpay/lib/libwebpay/soap/soapclient.php on line 53
+18:41:54 - Error - Warning: DOMDocument::loadXML(): Empty string supplied as input in /home/maui/public_html/app/code/Transbank/Webpay/lib/libwebpay/soap/soapclient.php on line 53
+18:46:10 - Error - Warning: DOMDocument::loadXML(): Empty string supplied as input in /home/maui/public_html/app/code/Transbank/Webpay/lib/libwebpay/soap/soapclient.php on line 53
+18:47:41 - Error - Warning: DOMDocument::loadXML(): Empty string supplied as input in /home/maui/public_html/app/code/Transbank/Webpay/lib/libwebpay/soap/soapclient.php on line 53
+19:13:49 - Error - Warning: DOMDocument::loadXML(): Empty string supplied as input in /home/maui/public_html/app/code/Transbank/Webpay/lib/libwebpay/soap/soapclient.php on line 53

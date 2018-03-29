@@ -1,0 +1,1 @@
+20:09:04 - Error - Warning: DOMDocument::loadXML(): Empty string supplied as input in /home/kivulqa/public_html/app/code/Transbank/Webpay/lib/libwebpay/soap/soapclient.php on line 53

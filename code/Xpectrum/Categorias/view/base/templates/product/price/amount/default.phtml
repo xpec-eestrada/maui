@@ -1,0 +1,63 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+$precio = $block->formatCurrency($block->getDisplayValue(), (bool)$block->getIncludeContainer());
+$none='';
+if($precio!='0' && $precio!='<span class="price">$0</span>'){
+
+}else{
+    $none='display:none;';
+    echo '<div class="lab-no-producto"><span>Producto no disponible en el momento</span></div>';
+    ?>
+    <style>
+         .product-options-wrapper,
+        .product-options-bottom{
+            display:none;
+        } 
+    </style>
+    <script>
+        require([
+        "jquery"
+        ], function($){
+            $(document).ready(function() {
+                $("body").mouseover(function(){
+                    if($(".product-options-wrapper").length){
+                        $(".product-options-wrapper").remove();
+                    }
+                    if($(".product-options-bottom").length){
+                        $(".product-options-bottom").remove();
+                    }
+                });
+            });
+        });
+    </script>
+    <?php
+}
+?>
+
+<?php /** @var \Magento\Framework\Pricing\Render\Amount $block */ ?>
+
+<span class="price-container <?php /* @escapeNotVerified */ echo $block->getAdjustmentCssClasses() ?>" style = "<?php echo $none; ?>"
+        <?php echo $block->getSchema() ? ' itemprop="offers" itemscope itemtype="http://schema.org/Offer"' : '' ?>>
+    <?php if ($block->getDisplayLabel()): ?>
+        <span class="price-label"><?php /* @escapeNotVerified */ echo $block->getDisplayLabel(); ?></span>
+    <?php endif; ?>
+    <span <?php if ($block->getPriceId()): ?> id="<?php /* @escapeNotVerified */ echo $block->getPriceId() ?>"<?php endif;?>
+        <?php echo($block->getPriceDisplayLabel()) ? 'data-label="' . $block->getPriceDisplayLabel() . $block->getPriceDisplayInclExclTaxes() . '"' : '' ?>
+        data-price-amount="<?php /* @escapeNotVerified */ echo $block->getDisplayValue(); ?>"
+        data-price-type="<?php /* @escapeNotVerified */ echo $block->getPriceType(); ?>"
+        class="price-wrapper <?php /* @escapeNotVerified */ echo $block->getPriceWrapperCss(); ?>"
+        <?php echo $block->getSchema() ? ' itemprop="price"' : '' ?>>
+        <?php /* @escapeNotVerified */ echo $block->formatCurrency($block->getDisplayValue(), (bool)$block->getIncludeContainer());  ?>
+    </span>
+    <?php if ($block->hasAdjustmentsHtml()): ?>
+        <?php echo $block->getAdjustmentsHtml() ?>
+    <?php endif; ?>
+    <?php if ($block->getSchema()): ?>
+        <meta itemprop="priceCurrency" content="<?php /* @escapeNotVerified */ echo $block->getDisplayCurrencyCode()?>" />
+    <?php endif; ?>
+</span>

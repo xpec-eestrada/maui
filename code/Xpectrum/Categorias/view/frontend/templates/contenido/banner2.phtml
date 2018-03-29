@@ -1,0 +1,12 @@
+<div class="clearfix paginador"></div>
+<div class="clearfix banner2">
+    <?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('banner2-xpec-catalog')->toHtml(); ?>
+</div>
+<script >
+    require([
+        "jquery"
+    ], function($){
+        var alto=$('.toolbar-products').height();
+        $('.toolbar-products .pages').css({'display':'block'});
+    });
+</script>

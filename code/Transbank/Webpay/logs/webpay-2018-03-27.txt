@@ -1,0 +1,72 @@
+13:42:08 - datos request initTransaction 
+Array
+(
+    [wSTransactionType] => TR_MALL_WS
+    [commerceId] => 33300387
+    [buyOrder] => 000000042
+    [sessionId] => 
+    [returnURL] => http://maui.xpectrumtech.com/webpay/payment/response
+    [finalURL] => http://maui.xpectrumtech.com/webpay/payment/success
+    [transactionDetails] => Array
+        (
+            [commerceCode] => 597033300395
+            [buyOrder] => 000000042
+            [amount] => 11893.1
+        )
+
+)
+
+13:43:36 - datos request initTransaction 
+Array
+(
+    [wSTransactionType] => TR_MALL_WS
+    [commerceId] => 33300387
+    [buyOrder] => 000000043
+    [sessionId] => 
+    [returnURL] => http://maui.xpectrumtech.com/webpay/payment/response
+    [finalURL] => http://maui.xpectrumtech.com/webpay/payment/success
+    [transactionDetails] => Array
+        (
+            [commerceCode] => 597033300395
+            [buyOrder] => 000000043
+            [amount] => 123.88
+        )
+
+)
+
+14:05:08 - datos request initTransaction 
+Array
+(
+    [wSTransactionType] => TR_MALL_WS
+    [commerceId] => 33300387
+    [buyOrder] => 000000044
+    [sessionId] => 
+    [returnURL] => http://maui.xpectrumtech.com/webpay/payment/response
+    [finalURL] => http://maui.xpectrumtech.com/webpay/payment/success
+    [transactionDetails] => Array
+        (
+            [commerceCode] => 597033300395
+            [buyOrder] => 000000044
+            [amount] => 23793.1
+        )
+
+)
+
+18:11:12 - datos request initTransaction 
+Array
+(
+    [wSTransactionType] => TR_MALL_WS
+    [commerceId] => 33300387
+    [buyOrder] => 000000045
+    [sessionId] => 
+    [returnURL] => http://maui.xpectrumtech.com/webpay/payment/response
+    [finalURL] => http://maui.xpectrumtech.com/webpay/payment/success
+    [transactionDetails] => Array
+        (
+            [commerceCode] => 597033300395
+            [buyOrder] => 000000045
+            [amount] => 15463.1
+        )
+
+)
+

@@ -1,0 +1,7 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/Mview/etc/mview.xsd">
+  <view id="xpec_price_product_index" class="Xpectrum\Categorias\Model\Indexer\Popular" group="indexer">
+    <subscriptions>
+      <table name="xpec_indexer_product" entity_column="row_id" />
+    </subscriptions>
+  </view>
+</config>

@@ -1,0 +1,138 @@
+Array
+(
+    [Orden] => Array
+        (
+            [description] => Web Pay
+            [paymenCodeResult] => Venta Cr&eacute;dito
+            [date_accepted] => 2017-07-31T15:20:07.042-04:00
+            [buyOrder] => 000000374
+            [authorizationCode] => 1213
+            [cardNumber] => 6623
+            [amount] => 331950
+            [sharesNumber] => 0
+            [detalle] => Array
+                (
+                    [tipopago] => Cr&eacute;dito
+                    [tipocuotas] => Sin Cuotas
+                    [numcuotas] => 0
+                )
+
+        )
+
+)
+
+Array
+(
+    [Orden] => Array
+        (
+            [description] => Web Pay
+            [paymenCodeResult] => Venta Cr&eacute;dito
+            [date_accepted] => 2017-07-31T17:49:03.218-04:00
+            [buyOrder] => 000000378
+            [authorizationCode] => 1213
+            [cardNumber] => 6623
+            [amount] => 106990
+            [sharesNumber] => 0
+            [detalle] => Array
+                (
+                    [tipopago] => Cr&eacute;dito
+                    [tipocuotas] => Sin Cuotas
+                    [numcuotas] => 0
+                )
+
+        )
+
+)
+
+Array
+(
+    [Orden] => Array
+        (
+            [description] => Web Pay
+            [paymenCodeResult] => Venta Cr&eacute;dito
+            [date_accepted] => 2017-07-31T17:53:04.542-04:00
+            [buyOrder] => 000000379
+            [authorizationCode] => 1213
+            [cardNumber] => 6623
+            [amount] => 106990
+            [sharesNumber] => 0
+            [detalle] => Array
+                (
+                    [tipopago] => Cr&eacute;dito
+                    [tipocuotas] => Sin Cuotas
+                    [numcuotas] => 0
+                )
+
+        )
+
+)
+
+Array
+(
+    [Orden] => Array
+        (
+            [description] => Web Pay
+            [paymenCodeResult] => Venta Cr&eacute;dito
+            [date_accepted] => 2017-07-31T18:29:57.588-04:00
+            [buyOrder] => 000000381
+            [authorizationCode] => 1213
+            [cardNumber] => 6623
+            [amount] => 46970
+            [sharesNumber] => 0
+            [detalle] => Array
+                (
+                    [tipopago] => Cr&eacute;dito
+                    [tipocuotas] => Sin Cuotas
+                    [numcuotas] => 0
+                )
+
+        )
+
+)
+
+Array
+(
+    [Orden] => Array
+        (
+            [description] => Web Pay
+            [paymenCodeResult] => Venta Cr&eacute;dito
+            [date_accepted] => 2017-07-31T18:37:53.764-04:00
+            [buyOrder] => 000000382
+            [authorizationCode] => 1213
+            [cardNumber] => 6623
+            [amount] => 16990
+            [sharesNumber] => 0
+            [detalle] => Array
+                (
+                    [tipopago] => Cr&eacute;dito
+                    [tipocuotas] => Sin Cuotas
+                    [numcuotas] => 0
+                )
+
+        )
+
+)
+
+Array
+(
+    [Orden] => Array
+        (
+            [description] => Web Pay
+            [paymenCodeResult] => Venta Cr&eacute;dito
+            [date_accepted] => 2017-07-31T18:54:13.830-04:00
+            [buyOrder] => 000000384
+            [authorizationCode] => 1213
+            [cardNumber] => 6623
+            [amount] => 16000
+            [sharesNumber] => 0
+            [detalle] => Array
+                (
+                    [tipopago] => Cr&eacute;dito
+                    [tipocuotas] => Sin Cuotas
+                    [numcuotas] => 0
+                )
+
+        )
+
+)
+

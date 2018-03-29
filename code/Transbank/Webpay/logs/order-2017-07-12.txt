@@ -1,0 +1,92 @@
+Array
+(
+    [Orden] => Array
+        (
+            [description] => Web Pay
+            [paymenCodeResult] => Venta Cr&eacute;dito
+            [date_accepted] => 2017-07-11T22:21:18.823-04:00
+            [buyOrder] => 000000065
+            [authorizationCode] => 1213
+            [cardNumber] => 6623
+            [amount] => 800
+            [sharesNumber] => 0
+            [detalle] => Array
+                (
+                    [tipopago] => Cr&eacute;dito
+                    [tipocuotas] => Sin Cuotas
+                    [numcuotas] => 0
+                )
+
+        )
+
+)
+
+Array
+(
+    [Orden] => Array
+        (
+            [description] => Web Pay
+            [paymenCodeResult] => Venta D&eacute;bito
+            [date_accepted] => 2017-07-12T15:09:26.345-04:00
+            [buyOrder] => 000000066
+            [authorizationCode] => 1213
+            [cardNumber] => 6623
+            [amount] => 92
+            [sharesNumber] => 0
+            [detalle] => Array
+                (
+                    [tipopago] => D&eacute;bito
+                    [tipocuotas] => Venta D&eacute;bito
+                    [numcuotas] => 0
+                )
+
+        )
+
+)
+
+Array
+(
+    [Orden] => Array
+        (
+            [description] => Web Pay
+            [paymenCodeResult] => Venta Cr&eacute;dito
+            [date_accepted] => 2017-07-12T15:09:48.896-04:00
+            [buyOrder] => 000000067
+            [authorizationCode] => 1213
+            [cardNumber] => 6623
+            [amount] => 209
+            [sharesNumber] => 0
+            [detalle] => Array
+                (
+                    [tipopago] => Cr&eacute;dito
+                    [tipocuotas] => Sin Cuotas
+                    [numcuotas] => 0
+                )
+
+        )
+
+)
+
+Array
+(
+    [Orden] => Array
+        (
+            [description] => Web Pay
+            [paymenCodeResult] => Venta Cr&eacute;dito
+            [date_accepted] => 2017-07-12T15:46:34.037-04:00
+            [buyOrder] => 000000068
+            [authorizationCode] => 1213
+            [cardNumber] => 6623
+            [amount] => 147
+            [sharesNumber] => 0
+            [detalle] => Array
+                (
+                    [tipopago] => Cr&eacute;dito
+                    [tipocuotas] => Sin Cuotas
+                    [numcuotas] => 0
+                )
+
+        )
+
+)
+

@@ -1,0 +1,97 @@
+<?php
+/**
+ * Copyright © 2016 x-mage2(Yosto). All rights reserved.
+ * See README.md for details.
+ */
+
+//Template for display instagram follower slider.
+?>
+
+<?php
+$imageNumber = $this->getData('followerNumber');
+$column = $this->getData('columnNumber');
+$row = $this->getData('rowNumber');
+$listFollower = null;
+
+$infor = $block->getFollower($imageNumber);
+if ($infor != null && count($infor) != 0) {
+    $listFollower = array_keys($infor);
+    $divClass = 'widget block block-static-block';
+}
+if ($column == 0 || !is_numeric($column)) {
+    $column = 1;
+}
+if ($row == 0 || !is_numeric($row)) {
+    $row = 1;
+}
+
+$jsonString = json_encode($infor);
+
+
+?>
+<?php
+if ($listFollower != null && count($listFollower) > 0) :
+    ?>
+    <div class="<?= $divClass ?> ">
+        <div class="yosto-instagram-connect-wrapper">
+            <?php if (count($listFollower) <= $row || $row == -1): ?>
+                <div class="owl-carousel-follower">
+                    <?php foreach ($listFollower as $follower) : ?>
+                        <div>
+                            <a href="https://www.instagram.com/<?= $infor[$follower][2] ?>">
+                                <img src="<?= $infor[$follower][0] ?>"
+                                     alt="<?= $infor[$follower][1] ?>">
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php else: ?>
+                <?php $loopNumb = 0; ?>
+                <div class="owl-carousel-follower">
+                    <?php for ($i = 0; $i + $row < count($listFollower); $i += $row): ?>
+                        <?php $loopNumb += 1; ?>
+                        <div>
+                            <?php for ($j = $i; $j < $i + $row; $j++): ?>
+                                <div>
+                                    <a href="https://www.instagram.com/<?= $infor[$listFollower[$j]][2] ?>">
+                                        <img src="<?= $infor[$listFollower[$j]][0] ?>"
+                                             alt="<?= $infor[$listFollower[$j]][1] ?>">
+                                    </a>
+                                </div>
+                            <?php endfor; ?>
+                        </div>
+                    <?php endfor; ?>
+                    <?php if ($loopNumb * $row < count($listFollower)): ?>
+                        <div>
+                            <?php for ($i = count($listFollower) - 1; $i >= $loopNumb * $row; $i--): ?>
+                                <div>
+                                    <a href="https://www.instagram.com/<?= $infor[$listFollower[$i]][2] ?>">
+                                        <img src="<?= $infor[$listFollower[$i]][0] ?>"
+                                             alt="<?= $infor[$listFollower[$i]][1] ?>">
+                                    </a>
+                                </div>
+                            <?php endfor; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+<?php endif; ?>
+
+<script type="text/x-magento-init">
+    {
+        ".yosto-instagram-connect-wrapper .owl-carousel-follower": {
+            "Yosto_InstagramConnect/js/view/follower-list": {
+                "config": {
+                    "items360": <?=$column['320']?>,
+                    "items480": <?=$column['480']?>,
+                    "items640": <?=$column['640']?>,
+                    "items768": <?=$column['768']?>,
+                    "items1024": <?=$column['1024']?>,
+                    "items1440": <?=$column['1440']?>
+                }
+            }
+        }
+    }
+</script>

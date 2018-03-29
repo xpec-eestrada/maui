@@ -1,0 +1,166 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Template for filter items block
+ *
+ * @var $block \Magento\LayeredNavigation\Block\Navigation\FilterRenderer
+ */
+ $swprice=false;
+ $swishow=false;
+?>
+<ol class="items flag">
+    <?php 
+        $cantidad = count($filterItems);
+        $max = str_replace('-','',$filterItems[ $cantidad-1 ]->getValue());
+        $arrayvalues=array();
+        foreach ($filterItems as $item){
+            $arrayvalues[]=$item->getValue();
+            if($item->getName()=='Price'){
+                $swprice=true;
+            }
+        }
+?>
+<?php $sw1=''; $sw2=''; $cuenta=1; $pasolimit=false; $limit=5; ?>
+    <?php foreach ($filterItems as $filterItem): ?>
+    <?php
+    if($filterItem->getName()=='Price' || $filterItem->getName()=='Precio'){
+        $swprice=true;
+        if(!$swishow){
+            echo '<div id="slider-precio"></div>';
+            $swishow=true;
+            echo '<div class="slider-labels" >
+                <div class="lab1">0</div>
+                <div class="lab2">'.$max.'</div>
+            </div>';
+        }
+    }else{
+        if($cuenta>$limit){//debe cambiarce el limite
+            $sw2='candidate';
+            $sw1='hidden';
+            $pasolimit=true;
+        }
+        ?>
+        <li class="item <?php echo $sw1; ?> <?php echo $sw2; ?>">
+            <?php if ($filterItem->getCount() > 0): ?>
+                <a href="<?php echo $block->escapeUrl($filterItem->getUrl()) ?>">
+                    <?php /* @escapeNotVerified */ echo $filterItem->getLabel() ?>
+                    <?php if ($this->helper('\Magento\Catalog\Helper\Data')->shouldDisplayProductCountOnLayer()): ?>
+                        <span class="count"><?php /* @escapeNotVerified */ echo $filterItem->getCount()?><span class="filter-count-label">
+                            <?php if ($filterItem->getCount() == 1):?> <?php /* @escapeNotVerified */ echo __('item')?><?php else:?> <?php /* @escapeNotVerified */ echo __('items') ?><?php endif;?></span></span>
+                    <?php endif; ?>
+                </a>
+            <?php else:?>
+                <?php /* @escapeNotVerified */ echo $filterItem->getLabel() ?>
+                <?php if ($this->helper('\Magento\Catalog\Helper\Data')->shouldDisplayProductCountOnLayer()): ?>
+                    <span class="count"><?php /* @escapeNotVerified */ echo $filterItem->getCount()?><span class="filter-count-label">
+                        <?php if ($filterItem->getCount() == 1):?><?php /* @escapeNotVerified */ echo __('item')?><?php else:?><?php /* @escapeNotVerified */ echo __('items') ?><?php endif;?></span></span>
+                <?php endif; ?>
+            <?php endif; ?>
+        </li>
+        <?php
+    }
+    $cuenta++;
+    ?>
+        
+    <?php endforeach ?>
+    <?php 
+    if($pasolimit){
+        echo '<li class="item bot-filter"><a>M&aacute;s...</a></li>';
+    }
+    ?>
+</ol>
+<?php 
+if($swprice){
+?>
+<input type="hidden" id="max" value="<?php echo $max; ?>" />
+<input type="hidden" id="min" value="0" />
+<script >
+    require([
+        "jquery",
+        'jquery/ui'
+    ], function($){
+        $(document).ready(function(){
+            var cantidad=parseInt(<?php echo $cantidad; ?>);
+            var max=parseInt(<?php echo $max; ?>);
+            var step=0;
+            var inicial=0;
+            var baseUrl = document.location.href;
+            var data = "layer_action=1";
+            step=max/4;
+            var ajax=null;
+            $("#slider-precio").slider({
+                range   : true,
+                values  : [ 0, max ],
+                min     : 0,
+                max     : max,
+                slide   : function( event, ui ) {
+                    $("#min").val(ui.values[0]);
+                    $("#max").val(ui.values[1]);
+                    $('.lab1').html(ui.values[0]);
+                    $('.lab2').html(ui.values[1]);
+                }
+            });
+            $('.ui-slider-handle').mouseup(function(){
+                var min=$("#min").val();
+                var max=$("#max").val();
+                if(ajax!=null){
+                    ajax.abort();
+                    ajax=null;
+                }
+                if(ajax==null){
+                    ajax=$.ajax({
+                        url         : baseUrl+'?price='+min+'-'+max,
+                        method      : "post",
+                        dataType    : 'json',
+                        data        : data,
+                        beforeSend  : function() {
+                            $(".category-view").append("<div class=\"load-background-xpec\"></div>");
+                            $(".category-view").append("<div class=\"load-xpec\"><img src='<?php echo $this->getViewFileUrl('Xpectrum_Layered::images/ajax-loader.gif'); ?>' /></div>");
+                            //$("#inicial").val(ui.value);
+                        },
+                        success     : function(data){
+                            if (data.productlist) {
+                                var html=data.productlist;
+                                html=html.replace("class=\"toolbar toolbar-products\"","class=\"remove\"");
+                                html=html.replace("class=\"toolbar toolbar-products\"","class=\"remove\"");
+                                $('.products-grid').html(html).trigger('contentUpdated');
+                                $(".remove").remove();
+                            }
+                            if (data.leftLayer) {
+                                $('.sidebar-main').html(data.leftLayer).trigger('contentUpdated');                        
+                            }
+                        },
+                        complete    : function() {
+                            $('.load-background-xpec').remove();
+                            $('.load-xpec').remove();
+                            ajax=null;
+                        }
+                    });
+                }else{
+                    ajax.abort();
+                    ajax=null;
+                }
+            });
+            $('.bot-filter').click(function(){
+                if($('.bot-filter').html()=="MENOS"){
+                    $('.bot-filter').html("M&Aacute;S...");
+                    $('.candidate').addClass('hidden');
+                }else{
+                    $('.bot-filter').html("MENOS");
+                    $('.candidate').removeClass('hidden');
+                }
+            });
+        });
+    });
+</script>
+<?php
+}
+?>

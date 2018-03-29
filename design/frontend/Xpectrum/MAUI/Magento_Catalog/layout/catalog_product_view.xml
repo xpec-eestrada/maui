@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <container name="category.image.xpec" htmlTag="div" htmlClass="category-image-xpec">
+            <block class="Magento\Catalog\Block\Product\View" name="category.image" template="Magento_Catalog::product/imageTop.phtml"/>
+        </container>
+        <move element="category.image.xpec" destination="page.top" before="breadcrumbs" />
+        <!--move element="page.main.title" destination="category.image.xpec" after="-" /-->
+        
+        <referenceBlock name="product.info.upsell" remove="true" />
+        
+        <referenceContainer name="content">
+            <container name="product.info.principal" label="XPEC Principal Product" htmlTag="div" htmlClass="product-info-principalXPEC xpec-container" before="-" />
+            <container name="product.info.descripcion" label="XPEC Descripcion Product" htmlTag="div" htmlClass="product-info-descriptionXPEC" after="product.info.principal">
+                <container name="product.info.descripcion.container" label="XPEC Descripcion Product Container" htmlTag="div" htmlClass="xpec-container" />
+            </container>
+            <container name="product.info.relacionados" label="XPEC Relacionados Product" htmlTag="div" htmlClass="product-info-relacionadosXPEC">
+                <container name="product.info.relacionados.container" label="XPEC Relacionados Product Container" htmlTag="div" htmlClass="xpec-container" />
+            </container>
+        </referenceContainer>
+    
+        <move element="product.info.media" destination="product.info.principal" before="-" />
+        <move element="product.info.main" destination="product.info.principal" after="product.info.media" />
+        
+        <move element="product.info.details" destination="product.info.descripcion.container" before="-" />
+        <move element="catalog.product.related" destination="product.info.relacionados.container" after="-" />
+        
+        <referenceBlock name="product.info.details">
+            <referenceBlock name="reviews.tab" remove="true" />
+        </referenceBlock>
+        
+        <move element="product.info.overview" destination="product.info.main" after="page.main.title" />
+    </body>
+</page>

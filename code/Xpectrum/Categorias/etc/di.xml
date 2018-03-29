@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+        <preference for="Magento\Checkout\Controller\Cart\UpdatePost" type="Xpectrum\Categorias\Controller\Cart\UpdatePost" />
+        
+        <preference for="Magento\Catalog\Block\Product\ProductList\Toolbar" 
+                type="Xpectrum\Categorias\Block\Product\ProductList\Toolbar" />
+
+        <preference for="Magento\Checkout\Controller\Cart\Add" 
+                type="Xpectrum\Categorias\Controller\Cart\Add" />
+
+        <type name="Xpectrum\Categorias\Logger\Handler">
+                <arguments>
+                        <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+                </arguments>
+        </type>
+        <type name="Xpectrum\Categorias\Logger\Logger">
+                <arguments>
+                        <argument name="name" xsi:type="string">CategoriasLogger</argument>
+                        <argument name="handlers"  xsi:type="array">
+                                <item name="system" xsi:type="object">Xpectrum\Categorias\Logger\Handler</item>
+                        </argument>
+                </arguments>
+        </type>        
+
+</config>

@@ -1,0 +1,7 @@
+17:04:17 - Error - <!-- Commerce code () and commerce signature (597032948251) do not match(306) -->
+17:11:46 - Error - <!-- Null Key(263) -->
+17:13:54 - Error - <!-- Null Key(263) -->
+17:20:24 - Error - Warning: openssl_sign(): supplied key param cannot be coerced into a private key in /var/www/html/kivul_ecommerce/app/code/Transbank/Webpay/lib/libwebpay/soap/xmlseclibs.php on line 503
+17:26:37 - Error - <!-- Commerce code () and commerce signature (597020000541) do not match(306) -->
+17:31:08 - Error - <!-- Commerce code () and commerce signature (597020000541) do not match(306) -->
+17:49:57 - Error - <!-- Commerce code () and commerce signature (597020000541) do not match(306) -->

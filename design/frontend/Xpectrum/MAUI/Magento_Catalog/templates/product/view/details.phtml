@@ -1,0 +1,30 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php if ($detailedInfoGroup = $block->getGroupChildNames('detailed_info', 'getChildHtml')):?>
+    <div class="product info detailed">
+        <?php $layout = $block->getLayout(); ?>
+        <?php foreach ($detailedInfoGroup as $name):?>
+            <?php
+                $html = $layout->renderElement($name);
+                if (!trim($html)) {
+                    continue;
+                }
+                $alias = $layout->getElementAlias($name);
+                $label = $block->getChildData($alias, 'title');
+            ?>
+            <div class="content_XPEC <?php /* @escapeNotVerified */ echo str_replace(".", "-", $alias);?>" id="<?php /* @escapeNotVerified */ echo $alias;?>">
+                <h2 class="details_XPEC-title"><?php /* @escapeNotVerified */ echo $label; ?></h2>
+                <div class="details_XPEC-content">
+                    <?php /* @escapeNotVerified */ echo $html; ?>
+                </div>
+            </div>
+        <?php endforeach;?>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,140 @@
+<?php
+/**
+ * Copyright © 2016 x-mage2(Yosto). All rights reserved.
+ * See README.md for details.
+ */
+
+//Template for display instagram image slider.
+?>
+
+
+<?php
+$imageNumber = $this->getData('imageNumber');
+$column = $this->getData('columnNumber');
+$title = $this->getData('title');
+$listColumns = [];
+if ($column == 0 || !is_numeric($column)) {
+    $column = 1;
+}
+$row = $this->getData('rowNumber');
+if ($row == 0 || !is_numeric($row)) {
+    $row = 1;
+}
+$isDisplayLikesComments = 0;
+$listMedia = null;
+
+if ($block->isDisplayOnCatalog()) {
+    $infor = $block->getInstagramMediaByTag();
+    $row = -1;
+    if ($infor != null && count($infor) != 0) {
+        $listMedia = array_keys($infor);
+        $divClass = 'product media';
+        if ($block->getIsDisplayLikesComments()) {
+            $isDisplayLikesComments = 1;
+        }
+        $listColumns['320'] = 2;
+        $listColumns['480'] = 4;
+        $listColumns['640'] = 4;
+        $listColumns['768'] = 5;
+        $listColumns['1024'] = 7;
+        $listColumns['1440'] = 7;
+    }
+} else {
+    $sliderTag = $this->getData('sliderTag');
+    if ($sliderTag != null || preg_replace('/\s/', '', $sliderTag) != "") {
+        $infor = $block->getInstagramMediaByTagWithTag(preg_replace('/\s/', '', $sliderTag), $imageNumber);
+    } else {
+        $infor = $block->getAllInstagramMedia($imageNumber);
+    }
+
+    if ($infor[0] != null && count($infor[0]) != 0) {
+        $listMedia = array_keys($infor[0]);
+        $divClass = 'widget block block-static-block';
+        if ($this->getData('isDisplayLikeComment')) {
+            $isDisplayLikesComments = 1;
+        }
+    }
+
+    $listColumns['320'] = $column;
+    $listColumns['480'] = $column;
+    $listColumns['640'] = $column;
+    $listColumns['768'] = $column;
+    $listColumns['1024'] = $column;
+    $listColumns['1440'] = $column;
+}
+
+$jsonString = json_encode($infor[0]);
+
+?>
+<?php
+if ($listMedia != null && count($listMedia) > 0) :
+    ?>
+    <div class="page-main">
+        <div class="title-instagram-home">
+            <h6><a target="_blank" href="https://www.instagram.com/kivul_chile/"><?php echo $title; ?></a></h6>
+        </div>
+        <div class="<?= $divClass ?> ">
+            <div class="yosto-instagram-connect-wrapper content-main">
+                <?php if ($block->isDisplayOnCatalog()) : ?>
+                    <label class="label"><span>Instagram Images</span></label>
+                    <br><br>
+                <?php endif ?>
+                <?php if (count($listMedia) <= $row || $row == -1): ?>
+                    <div class="owl-carousel">
+                        <?php foreach ($listMedia as $media) : ?>
+                            <div>
+                                <img src="<?= $media ?>" alt="Instagram Images" />
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php else: ?>
+                    <?php $loopNumb = 0; ?>
+                    <div class="owl-carousel">
+                        <?php for ($i = 0; $i + $row < count($listMedia); $i += $row): ?>
+                            <?php $loopNumb += 1; ?>
+                            <div>
+                                <?php for ($j = $i; $j < $i + $row; $j++): ?>
+                                    <div>                                       
+                                        <img src="<?= $listMedia[$j] ?>" alt="Instagram Images">
+                                    </div>
+                                <?php endfor; ?>
+                            </div>
+                        <?php endfor; ?>
+                        <?php if ($loopNumb * $row < count($listMedia)): ?>
+                            <div>
+                                <?php for ($i = count($listMedia) - 1; $i >= $loopNumb * $row; $i--): ?>
+                                    <div>
+                                        <img src="<?= $listMedia[$i] ?>" alt="Instagram Images">
+                                    </div>
+                                <?php endfor; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var testOnOff = <?=$isDisplayLikesComments?>;
+
+        var mediaInfor = <?=$jsonString?>;
+    </script>
+    <script type="text/x-magento-init">
+        {
+            ".yosto-instagram-connect-wrapper .owl-carousel": {
+                "Yosto_InstagramConnect/js/view/slider-list": {
+                    "config": {
+                        "items360": <?=$listColumns['320']?>,
+                        "items480": <?=$listColumns['480']?>,
+                        "items640": <?=$listColumns['640']?>,
+                        "items768": <?=$listColumns['768']?>,
+                        "items1024": <?=$listColumns['1024']?>,
+                        "items1440": <?=$listColumns['1440']?>
+                    }
+                }
+            }
+        }
+    </script>
+
+
+<?php endif; ?>

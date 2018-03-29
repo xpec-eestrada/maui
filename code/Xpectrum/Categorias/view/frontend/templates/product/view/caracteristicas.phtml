@@ -1,0 +1,30 @@
+<?php
+    $_helper = $this->helper('Magento\Catalog\Helper\Output');
+    $_product = $block->getProduct();
+?>
+<div class="product attribute description">
+    <div class="subtitle"><span>Detalle</span></div>
+    <div class="contenido"><?php echo $block->getDescripcion(); ?></div>
+    <div class="subtitle"><span>Especificaciones</span></div>
+    <div class="contenido"><?php echo $block->getEspicificaciones(); ?></div>
+    <div class="contenido" style="display:none">
+        <?php
+            if($_additional = $block->getAdditionalData()){
+                ?>
+                <table class="data table additional-attributes" id="product-attribute-specs-table">
+                    <tbody>
+                    <?php foreach ($_additional as $_data): ?>
+                        <tr>
+                            <th class="col label" scope="row"><?php echo $block->escapeHtml(__($_data['label'])) ?></th>
+                            <td class="col data" data-th="<?php echo $block->escapeHtml(__($_data['label'])) ?>"><?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_data['value'], $_data['code']) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <?php
+            }
+        ?>
+    </div>
+    <div class="subtitle"><span>Caracter&iacute;sticas</span></div>
+    <div class="contenido"><?php echo $block->getDescripcionLarga(); ?></div>
+</div>

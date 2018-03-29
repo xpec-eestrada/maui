@@ -1,0 +1,304 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+use Magento\Framework\App\Action\Action;
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @var $block \Magento\Catalog\Block\Product\ListProduct
+ */
+?>
+<?php
+$_productCollection = $block->getLoadedProductCollection();
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$swisnew=false;
+$swdescuento=false;
+$idtienda=$block->getIdTienda();
+?>
+<?php if (!$_productCollection->count()): ?>
+    <div class="message info empty"><div><?php /* @escapeNotVerified */ echo __('We can\'t find products matching the selection.') ?></div></div>
+<?php else: ?>
+    <?php echo '<div class="xpec-toolbar">'.$block->getToolbarHtml().'</div>'; ?>
+    <?php echo $block->getAdditionalHtml() ?>
+    <?php
+    if ($block->getMode() == 'grid') {
+        $viewMode = 'grid';
+        $image = 'category_page_grid';
+        $showDescription = false;
+        $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+    } else {
+        $viewMode = 'list';
+        $image = 'category_page_list';
+        $showDescription = true;
+        $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::FULL_VIEW;
+    }
+    /**
+     * Position for actions regarding image size changing in vde if needed
+     */
+    $pos = $block->getPositioned();
+    ?>
+    <div class="products wrapper <?php /* @escapeNotVerified */ echo $viewMode; ?> products-<?php /* @escapeNotVerified */ echo $viewMode; ?> xpec-products-grid-home">
+        <?php $iterator = 1; ?>
+        <ol class="products list items product-items">
+            <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
+            <?php foreach ($_productCollection as $_product): ?>
+                    <?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<li class="item product product-item">' : '</li><li class="item product product-item">' ?>
+                    <div class="product-item-info" data-container="product-grid">
+                        <?php
+                        $productImage = $block->getImage($_product, $image);
+                        if ($pos != null) {
+                            $position = ' style="left:' . $productImage->getWidth() . 'px;'
+                                . 'top:' . $productImage->getHeight() . 'px;"';
+                        }
+                        ?>
+                        <?php // Product Image 
+                        $gtmScript = $this->helper('WeltPixel\GoogleTagManager\Helper\Data')->addProductClick($_product, $iterator-1);
+                        ?>
+                        <a  <?php echo $gtmScript ?> href="<?php /* @escapeNotVerified */ echo $block->getUrlProductParent($_product); //echo $_product->getProductUrl(); ?>" class="product photo product-item-photo" tabindex="-1">
+                            <?php echo $productImage->toHtml(); ?>
+                        </a>
+                        <?php
+                            $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); 
+                            $pr = $objectManager->get('Magento\Catalog\Model\Product')->load($_product->getId());
+                            if($pr->getData('new')){
+                                $swisnew=true;
+                                echo '<div class="fig-new-product"></div><label class="lab-new-product">New</label>';
+                            }else{
+                                $desc=$block->tienePrecioEspecial($_product);
+                                if(isset($desc) && is_array($desc) && $desc['precioEspecial']){
+                                    $swdescuento=true;
+                                    $_savePercent=$desc['labelDescuento'];
+                                    if(isset($_savePercent) && !empty($_savePercent)){
+                                        echo '<div class="fig-descuento-product"></div><label class="lab-new-product">'.$_savePercent.'%</label>';
+                                    }
+                                }
+                            }
+                            $idmarca=$_product->getData('marca');
+                            $imagen=$block->getValueAttributeMarca($idmarca);
+                            if(isset($imagen['urllogo']) && !empty($imagen['urllogo'])){
+                                echo '<div class="logo-fabri-product">
+                                    <img src=\''.$block->getViewFileUrl('Xpectrum_Categorias::images/'.$imagen['urllogo']).'\' title=\''.$imagen['titulo'].'\' alt=\''.$imagen['titulo'].'\' />
+                                </div>';                        
+                            }
+                        ?>
+                        <div class="container-add-car">
+                            <button type="submit"
+                                    title="<?php echo $block->escapeHtml(__('Agregar al Carro')); ?>"
+                                    class="action tocart primary"
+                                    data-index="<?php echo $_product->getId(); ?>"
+                                    >
+                                <span><?php /* @escapeNotVerified */ echo __('+') ?></span>
+                            </button>
+                        </div>
+                        <div class="panel-buttoms-xpec pan-<?php echo $_product->getId(); ?>">
+                            <div class="cont-action-xpec">
+                                <div class="vista clearfix">
+                                    <div class="img-action img-vista"></div><div class="label">
+                                        <a style="display:block;" href="javascript: void(0);" data-quickview-url="<?php echo $block->getUrlBase(); ?>weltpixel_quickview/catalog_product/view/id/<?php echo $_product->getId(); ?>"
+                                            class="weltpixel-quickview"><label class="bot-evt-vista">vista previa</label></a>
+                                    </div>
+                                </div>
+                                <div class="deseos clearfix">
+                                    <div class="img-action img-deseos"></div><div class="label">
+                                        <a href="#" 
+                                            data-post='<?php  echo $this->helper('Magento\Wishlist\Helper\Data')->getAddParams($_product) ?>' 
+                                            data-action="add-to-wishlist" >
+                                            <label>añadir a lista</label>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="comparar clearfix">
+                                    <div class="img-action img-comparar"></div>
+                                    <?php
+                                        $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');
+                                    ?>
+                                    <div class="label">
+                                        <a href="#"
+                                            title="Comparar"
+                                            aria-label="Comparar"
+                                            data-post='<?php /* @escapeNotVerified */ echo $compareHelper->getPostDataParams($_product); ?>'
+                                            role="button">
+                                            <label>comparar</label>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php 
+                        $class='';
+                        if($swisnew){
+                            $class='custom-is-new';
+                        }else{
+                            if($swdescuento){
+                                $class='custom-is-descuento';
+                            }
+                        }
+                    ?>
+                    <div class="product details product-item-details <?php echo $class; ?>">
+                        <?php
+                            $_productNameStripped = $block->stripTags($_product->getName(), null, true);
+                        ?>
+                        <strong class="product name product-item-name">
+                            <a class="product-item-link" <?php echo $gtmScript ?>
+                            href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>">
+                                <?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
+                            </a>
+                        </strong>
+                        <?php echo $block->getReviewsSummaryHtml($_product, $templateType); ?>
+                        <?php echo $block->obtenerPrecios($_product); ?>
+
+                        <div class="product-item-inner">
+                            <div class="product actions product-item-actions"<?php echo strpos($pos, $viewMode . '-actions') ? $position : ''; ?>>
+                                <div class="actions-primary"<?php echo strpos($pos, $viewMode . '-primary') ? $position : ''; ?>>
+                                    <?php if ($_product->isSaleable()): ?>
+                                        <?php $postParams = $block->getAddToCartPostParams($_product); ?>
+                                        <form data-role="tocart-form" action="<?php /* @escapeNotVerified */ echo $postParams['action']; ?>" method="post">
+                                            <input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
+                                            <input type="hidden" name="<?php /* @escapeNotVerified */ echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php /* @escapeNotVerified */ echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
+                                            <?php echo $block->getBlockHtml('formkey')?>
+                                            <button type="submit"
+                                                    title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
+                                                    class="action tocart primary">
+                                                <span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
+                                            </button>
+                                        </form>
+                                    <?php else: ?>
+                                        <?php if ($_product->getIsSalable()): ?>
+                                            <div class="stock available"><span><?php /* @escapeNotVerified */ echo __('In stock') ?></span></div>
+                                        <?php else: ?>
+                                            <div class="stock unavailable"><span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span></div>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                </div>
+                                <div data-role="add-to-links" class="actions-secondary"<?php echo strpos($pos, $viewMode . '-secondary') ? $position : ''; ?>>
+                                    <?php if ($addToBlock = $block->getChildBlock('addto')): ?>
+                                        <?php echo $addToBlock->setProduct($_product)->getChildHtml(); ?>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                            <?php if ($showDescription):?>
+                                <div class="product description product-item-description">
+                                    <?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+                                    <a href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>" title="<?php /* @escapeNotVerified */ echo $_productNameStripped ?>"
+                                    class="action more"><?php /* @escapeNotVerified */ echo __('Learn More') ?></a>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <?php echo($iterator == count($_productCollection)+1) ? '</li>' : '' ?>
+                    <?php $swisnew=false; $swdescuento=false; ?>
+            <?php endforeach; ?>
+        </ol>
+    </div>
+    <?php echo $block->getToolbarHtml() ?>
+    <?php if (!$block->isRedirectToCartEnabled()) : ?>
+        <script type="text/x-magento-init">
+        {
+            "[data-role=tocart-form], .form.map.checkout": {
+                "catalogAddToCart": {}
+            }
+        }
+        </script>
+    <?php endif; ?>
+<?php endif; ?>
+<div id="modal-preview" style="display:none; ">
+    <div class="contenido-fancybox"></div>
+</div>
+<script >
+    require([
+        "jquery"
+    ], function($){
+        var $_swhover=false;
+
+        $(document).click(function(event) { 
+            var target = $(event.target);
+            var sw=$(target).parents('.product-item').find('.panel-buttoms-xpec.active').length;
+            if(sw<1){
+                $('.panel-buttoms-xpec.active').removeClass('active');
+            }
+        });
+
+        $('.tocart').click(function(){
+            var id=$(this).attr('data-index');
+            if($('.pan-'+id).hasClass('active')){
+                $('.pan-'+id).removeClass('active');
+            }else{
+                $('.panel-buttoms-xpec.active').removeClass('active');
+                $('.pan-'+id).addClass('active');
+            }
+        });
+        $(".xpec-toolbar").prependTo('.breadcrumbs');
+        if ( typeof($(".xpec-toolbar .toolbar-products")) !== "undefined" && $(".xpec-toolbar .toolbar-products")!== null ){
+            $(".xpec-toolbar .pages").remove();
+            $(".xpec-toolbar").css({'display':'block'});
+        }
+        $('.page-main .toolbar-products').addClass('paginador');   
+
+        var str = "";
+        var res = "";
+        if($('#sorter').length){
+            str = $('#sorter').html();
+            res = str.replace('selected="selected"', '');
+            //console.log(  );
+            if( $("#sorter option[value='']").length==0 ){
+                $('#sorter').html('<option value = "" selected="selected" >ORDENAR POR</option>' + res);
+            }
+        }
+        if($('#limiter').length){
+            str = $('#limiter').html();
+            res = str.replace('selected="selected"', '');
+            //$('#limiter').html('<option value = "" selected="selected">MOSTRAR</option>' + res);
+            if( $("#limiter option[value='']").length==0 ){
+                $('#limiter').html('<option value = "" selected="selected">MOSTRAR</option>' + res);
+            }
+        }
+    });
+</script>
+<script >
+    require([
+        "jquery","fancybox"
+    ], function($,fancybox){
+        $(document).on( "click", '.fancybox', function() {
+            var idproducto=$(this).attr('data-index');
+            var porc=70;
+            $.ajax({
+                url: "<?php echo $block->getUrl('producto/index/modalproducto'); ?>",
+                data: {
+                    idproducto:idproducto,
+                    idtienda:<?php echo $idtienda; ?>
+                },
+                type: "POST",
+                dataType: 'json',
+                beforeSend: function(){
+                    var ancho=$(window).width();
+                    var alto=$(window).width();
+                    var valorporcw=(porc*ancho)/100;
+                    var valorporch=(porc*alto)/100;
+                    $('.contenido-fancybox').html('<div style=" width:'+valorporcw+'px; height:'+valorporch+'px; "></div>');
+                    $('.contenido-fancybox').append('<div class="load-xpec" style="width:64px; position: fixed;"></div>');
+                },
+            }).done(function (data) {
+                if(data.body.length){
+                    $('.contenido-fancybox').html(data.body);
+                }
+                 $('.load-xpec').remove();
+            });
+        });
+        $('.fancybox').fancybox({
+            maxWidth	: 800,
+            maxHeight	: 600,
+            width		: '70%',
+            height		: '70%',
+            autoSize	: true,
+            closeClick	: false,
+        });
+    });
+</script>

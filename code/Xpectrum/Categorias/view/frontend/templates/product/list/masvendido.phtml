@@ -1,0 +1,151 @@
+<?php
+$coleccion = $block->getBestSellerData();
+if(isset($coleccion) && is_array($coleccion) && count($coleccion)>0 ){
+    echo '<div class="titulo-bestseller"><span>M&Aacute;S VENDIDOS</span></div>';
+    echo '<div class="container-bestseller">';
+}
+
+$i=1;
+foreach($coleccion as $product){
+    $urlImagen='';
+    $descripcion=trim($product->getName());
+    $idmarca=$product->getData('marca');
+    $Media = $product->getMediaGalleryEntries();
+    $urlImagen=$block->getImagenProducto($product->getThumbnail());
+    $_finalPrice=$product->getFinalPrice(); 
+    $_price=$product->getPrice();
+    $swisnew=false;
+    ?>
+    <div class="container-bestseller-item item-<?php echo $i; ?>">
+        <div class="col-<?php echo $i; ?> col-model">
+            <?php
+            if($product->getData('new')){
+                $swisnew=true;
+                echo '<div class="fig-new-product new-bestseller"></div><label class="lab-new-product">New</label>';
+            }else{
+                $_finalPrice=$product->getFinalPrice(); 
+                $_price=$product->getPrice();
+                if($_finalPrice < $_price){
+                    $swdescuento=true;
+                    $_savePercent = 100 - round(($_finalPrice / $_price)*100);
+                    echo '<div class="fig-descuento-product desc-bestseller"></div><label class="lab-new-product">'.$_savePercent.'%</label>';
+                }
+            }
+            ?>
+            <a href="<?php echo $block->getUrlProductRelativ($product->getId()); ?>">
+                <div class="bestseller-imagen">
+                    <img src="<?php echo $urlImagen; ?>" title="<?php echo $product->getName(); ?>" alt="<?php echo $product->getName(); ?>" />
+                </div>
+            </a>
+            <?php
+                if(isset($idmarca) && is_numeric($idmarca)){
+                    $imagen=$block->getValueAttributeMarca($idmarca);
+                    if(isset($imagen['urllogo']) && !empty($imagen['urllogo'])){
+                        echo '<div class="logo-carca-product" style="height:33px; width:147px;">
+                            <img src=\''.$block->getViewFileUrl('Xpectrum_Categorias::images/'.$imagen['urllogo']) .'\' title=\''.$imagen['titulo'].'\' alt=\'\' />
+                        </div>';
+                    }else{
+                        echo '<div class="logo-carca-product" style="height:33px; width:147px; "></div>';
+                    }
+                }else{
+                    echo '<div class="logo-carca-product" style="height:33px; width:147px; "></div>';
+                }
+            ?>
+            <div class="botonmasficha">
+                <button class="bot-panel-detail" data-index="<?php echo $product->getId(); ?>" ><span>+</span></botton>
+            </div>
+            <div class="panel-buttoms-xpec pan-<?php echo $product->getId(); ?>">
+                <div class="cont-action-xpec bestseller-bot">
+                    <div class="vista clearfix">
+                        <div class="img-action img-vista"></div>
+                        <div class="label">
+                            <!-- <a href="<?php /* @escapeNotVerified */ echo $block->getUrlProductRelativ($product->getId());  //echo $product->getProductUrl(); ?>">
+                                <label>vista previa</label>
+                            </a> -->
+                            <a style="display:block;" href="javascript: void(0);" data-quickview-url="<?php echo $block->getUrlBase(); ?>weltpixel_quickview/catalog_product/view/id/<?php echo $block->getIdProductRelativ($product->getId()); ?>"
+                                        class="weltpixel-quickview"><label class="bot-evt-vista">vista previa</label></a>
+                        </div>
+                    </div>
+                    <div class="deseos clearfix">
+                        <div class="img-action img-deseos"></div><div class="label">
+                            <a href="#" 
+                                data-post='<?php  echo $this->helper('Magento\Wishlist\Helper\Data')->getAddParams($product); ?>' 
+                                data-action="add-to-wishlist" >
+                                <label>añadir a lista</label>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comparar clearfix">
+                        <div class="img-action img-comparar"></div>
+                        <?php
+                            $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');
+                        ?>
+                        <div class="label">
+                            <a href="#"
+                                title="Comparar"
+                                aria-label="Comparar"
+                                data-post='<?php /* @escapeNotVerified */ echo $compareHelper->getPostDataParams($product); ?>'
+                                role="button">
+                                <label>comparar</label>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bestseller-contenido">
+            <div class="descripcion" ><span><?php echo $descripcion; ?></span></div>
+            <div class="precios">
+                <?php
+                if($swisnew){
+                    echo '<div class="price1 new"><span>$'.number_format($_finalPrice,0,',','.').'</span></div>';
+                }else{
+                    if($_finalPrice < $_price){
+                        echo '<div class="price1 desc"><span>$'.number_format($_finalPrice,0,',','.').'</span></div>';
+                        echo '<div class="price2"><span>$'.number_format($_price,0,',','.').'</span></div>';
+                    }else{
+                        echo '<div class="price1"><span>$'.number_format($_finalPrice,0,',','.').'</span></div>';
+                    }
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+    <?php 
+    $i++;   
+}
+if(isset($coleccion) && is_array($coleccion) && count($coleccion)>0 ){
+    echo '</div>';
+?>
+<script >
+    require([
+        "jquery"
+    ], function($){
+        var $_swhover=false;
+        $(document).off("click");
+        $(document).click(function(event) { 
+            var target = $(event.target);
+            var sw=$(target).parents('.col-model').find('.panel-buttoms-xpec.active').length;
+            if(sw<1){
+                $('.panel-buttoms-xpec.active').removeClass('active');
+            }
+        });
+        $('.bot-panel-detail').off("click");
+        $('.bot-panel-detail').click(function(event){
+
+            $(this).closest('.botonmasficha').next('.panel-buttoms-xpec');
+            if($(this).closest('.botonmasficha').next('.panel-buttoms-xpec').hasClass('active')){
+                $(this).closest('.botonmasficha').next('.panel-buttoms-xpec').removeClass('active');
+            }else{
+                $('.panel-buttoms-xpec.active').removeClass('active');
+                $(this).closest('.botonmasficha').next('.panel-buttoms-xpec').addClass('active');
+            }
+        });
+
+    });
+</script>
+<?php
+}
+
+?>

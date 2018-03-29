@@ -1,0 +1,168 @@
+00:05:25 - datos request initTransaction 
+Array
+(
+    [wSTransactionType] => TR_NORMAL_WS
+    [commerceId] => 
+    [buyOrder] => 000000575
+    [sessionId] => 
+    [returnURL] => http://kivulqa.xpectrumtech.com/webpay/payment/response
+    [finalURL] => http://kivulqa.xpectrumtech.com/webpay/payment/success
+    [transactionDetails] => Array
+        (
+            [commerceCode] => 597020000541
+            [buyOrder] => 000000575
+            [amount] => 6990
+        )
+
+)
+
+00:05:26 - initTransaction request  - <?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1"><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="SIG-302387"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/></ds:CanonicalizationMethod><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference URI="#id-302386"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList=""/></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>n/YIT3y4h4yi5MD6OUbD5HqDEJA=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>G/brx1+bBAt0DQLp/sYqnUyQ7qwQKRXMx2aPzQCFs49lOyXnHo7ufagFM3OQTB2KRKCgZ+FTvSFq
+jqRw9i9ocMEIqgmvihqWFbKliGAe6mgt2w42xziJjubk0fpuXzTdWbnsKQzMrswXmlrVXBQN+xxe
+u9HxYP/ph4/MJGQhQ6R8K2m8ec/5rV5myVhfLSMtPrHu8vnKBX/Ze/dvuTF3FG9NSlfQuqDP9wjb
+JsJ/kjJurTTUCnMFBXETw0zi8tDtDawyZAGxcrwidqWutdeoVwclopu/E910U+Bow5RqmbUB0ldC
+emGxbfe0bTIcpeVIAS9OQwIiGFKv59E+IAlQDQ==</ds:SignatureValue><ds:KeyInfo Id="KI-7DF136BBB9F24278A11501891526564453623"><wsse:SecurityTokenReference wsu:Id="STR-7DF136BBB9F24278A11501891526564453624"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=10,OU=kdu,O=kdu,L=Santiago,ST=Chile,C=CL</ds:X509IssuerName><ds:X509SerialNumber>1449520866</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></wsse:SecurityTokenReference></ds:KeyInfo></ds:Signature></wsse:Security></soap:Header><soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="id-302386"><ns2:initTransactionResponse xmlns:ns2="http://service.wswebpay.webpay.transbank.com/"><return><token>e001185790eb53e7e9e8a1f2160cce14d005c962febcfaf175dad592a4b8e1e4</token><url>https://webpay3gint.transbank.cl/filtroUnificado/initTransaction</url></return></ns2:initTransactionResponse></soap:Body></soap:Envelope>
+
+00:05:26 - initTransaction response - <?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1"><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="SIG-302387"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/></ds:CanonicalizationMethod><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference URI="#id-302386"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList=""/></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>n/YIT3y4h4yi5MD6OUbD5HqDEJA=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>G/brx1+bBAt0DQLp/sYqnUyQ7qwQKRXMx2aPzQCFs49lOyXnHo7ufagFM3OQTB2KRKCgZ+FTvSFq
+jqRw9i9ocMEIqgmvihqWFbKliGAe6mgt2w42xziJjubk0fpuXzTdWbnsKQzMrswXmlrVXBQN+xxe
+u9HxYP/ph4/MJGQhQ6R8K2m8ec/5rV5myVhfLSMtPrHu8vnKBX/Ze/dvuTF3FG9NSlfQuqDP9wjb
+JsJ/kjJurTTUCnMFBXETw0zi8tDtDawyZAGxcrwidqWutdeoVwclopu/E910U+Bow5RqmbUB0ldC
+emGxbfe0bTIcpeVIAS9OQwIiGFKv59E+IAlQDQ==</ds:SignatureValue><ds:KeyInfo Id="KI-7DF136BBB9F24278A11501891526564453623"><wsse:SecurityTokenReference wsu:Id="STR-7DF136BBB9F24278A11501891526564453624"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=10,OU=kdu,O=kdu,L=Santiago,ST=Chile,C=CL</ds:X509IssuerName><ds:X509SerialNumber>1449520866</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></wsse:SecurityTokenReference></ds:KeyInfo></ds:Signature></wsse:Security></soap:Header><soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="id-302386"><ns2:initTransactionResponse xmlns:ns2="http://service.wswebpay.webpay.transbank.com/"><return><token>e001185790eb53e7e9e8a1f2160cce14d005c962febcfaf175dad592a4b8e1e4</token><url>https://webpay3gint.transbank.cl/filtroUnificado/initTransaction</url></return></ns2:initTransactionResponse></soap:Body></soap:Envelope>
+
+00:06:01 - transactionResult request  - <?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://service.wswebpay.webpay.transbank.com/"><SOAP-ENV:Body><ns1:getTransactionResult><tokenInput>e001185790eb53e7e9e8a1f2160cce14d005c962febcfaf175dad592a4b8e1e4</tokenInput></ns1:getTransactionResult></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+00:06:01 - transactionResult response - <?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1"><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="SIG-244626"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/></ds:CanonicalizationMethod><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference URI="#id-244625"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList=""/></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>FH5DdBLyGzk5QFQyHCKnrF72Ps0=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>d72VQSP1+yofDBU7GUN0M56cMCD+Nr79ovZrzqEiWEy9GsEOtitRQG0QsIkGd4jpzXv5bbX3RtBa
+hyUWDs1yQY2OYZHuP+h5SiBXKLbPfr3V8ipxy2lwXTapHbTXf4xSngDI2Iikqs7jviCe7qVIuVMU
+SY9/YNF6gikrdB/6YP3BkiU0BrW85oTDFH8x9e0KiX1cge/Q4Vu/ulMlS5zYcAgO3eDJ2oBhGpJl
+Sf7JvMGNmVhpPqsQ7nNyuHk26sm83f8egXVw+4ZYfYl9OI23wd94lRy4MJ2iSHdnfW6QBEJHPOLM
+R8HgGPK5+Pjt/KtNC166TjrrsNB1jc8myjZG7g==</ds:SignatureValue><ds:KeyInfo Id="KI-BA1EF8A8C5ED5D4E6C1501891561247366953"><wsse:SecurityTokenReference wsu:Id="STR-BA1EF8A8C5ED5D4E6C1501891561247366954"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=10,OU=kdu,O=kdu,L=Santiago,ST=Chile,C=CL</ds:X509IssuerName><ds:X509SerialNumber>1449520866</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></wsse:SecurityTokenReference></ds:KeyInfo></ds:Signature></wsse:Security></soap:Header><soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="id-244625"><ns2:getTransactionResultResponse xmlns:ns2="http://service.wswebpay.webpay.transbank.com/"><return><accountingDate>0804</accountingDate><buyOrder>000000575</buyOrder><cardDetail><cardNumber>6623</cardNumber></cardDetail><detailOutput><sharesNumber>0</sharesNumber><amount>6990</amount><commerceCode>597020000541</commerceCode><buyOrder>000000575</buyOrder><authorizationCode>1213</authorizationCode><paymentTypeCode>VN</paymentTypeCode><responseCode>0</responseCode></detailOutput><transactionDate>2017-08-04T20:05:26.381-04:00</transactionDate><urlRedirection>https://webpay3gint.transbank.cl/filtroUnificado/voucher.cgi</urlRedirection><VCI>TSY</VCI></return></ns2:getTransactionResultResponse></soap:Body></soap:Envelope>
+
+00:06:03 - acknowledgeTransaction request  - <?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://service.wswebpay.webpay.transbank.com/"><SOAP-ENV:Body><ns1:acknowledgeTransaction><tokenInput>e001185790eb53e7e9e8a1f2160cce14d005c962febcfaf175dad592a4b8e1e4</tokenInput></ns1:acknowledgeTransaction></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+00:06:03 - acknowledgeTransaction response - <?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1"><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="SIG-244628"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/></ds:CanonicalizationMethod><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference URI="#id-244627"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList=""/></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>gNrAuc3ltg4dkJxi7HL+EZQQEFE=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>H954fRT9ml6dJA+50CjgenYfq85V1+Qg5od/TDoOdShZwb6rEtG552RLQ5zneBGjfmv+cxvH6f+d
+6fj+nuNBN0kZESGynRHFB+8UQ8miS/CoztcSYwx3hAl+LM0n7l2z0LEh8NUWCL/i9CVvDXvccsH+
+AcMvve0lceqglADIzwBBAE+VPUgB+exwqV/aM2UnVDImMUgSfApq81jCSYnCV/3ASLbirP9l4vta
+mOzzspvta43c7nS5MeL7ZB/uPhdG3n7krUa4Tv22zGy+dEsqXYQSaMBNn3iqLPQsYGq2H7vE+K+n
+jJX2F58O1ajmh4SR9YomPtpkt0TzeKFMJj++CA==</ds:SignatureValue><ds:KeyInfo Id="KI-BA1EF8A8C5ED5D4E6C1501891562715366956"><wsse:SecurityTokenReference wsu:Id="STR-BA1EF8A8C5ED5D4E6C1501891562715366957"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=10,OU=kdu,O=kdu,L=Santiago,ST=Chile,C=CL</ds:X509IssuerName><ds:X509SerialNumber>1449520866</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></wsse:SecurityTokenReference></ds:KeyInfo></ds:Signature></wsse:Security></soap:Header><soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="id-244627"><ns2:acknowledgeTransactionResponse xmlns:ns2="http://service.wswebpay.webpay.transbank.com/"/></soap:Body></soap:Envelope>
+
+00:09:05 - datos request initTransaction 
+Array
+(
+    [wSTransactionType] => TR_NORMAL_WS
+    [commerceId] => 
+    [buyOrder] => 000000576
+    [sessionId] => 
+    [returnURL] => http://kivulqa.xpectrumtech.com/webpay/payment/response
+    [finalURL] => http://kivulqa.xpectrumtech.com/webpay/payment/success
+    [transactionDetails] => Array
+        (
+            [commerceCode] => 597020000541
+            [buyOrder] => 000000576
+            [amount] => 21990
+        )
+
+)
+
+00:09:07 - initTransaction request  - <?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1"><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="SIG-302397"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/></ds:CanonicalizationMethod><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference URI="#id-302396"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList=""/></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>oE4S7cKn85aOtSHXsSfb9kbGpaw=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>Wv5l1GXXJugefLvQF8btF510w60yl+3NLu1XhJAqF1qdfiNHvyifhWp/1XWZgcvGPWLfZW3HFVhg
+NtsiBTyjdbG0YDJlMfu9c5WaFIQIKH9JQw3yVjhF14rgW4eKmoQ0GPArC1y6DAM10Ut6ZGPKvept
+hSiMoKdnV73SK+D7xvemXFlmTOPQGlKGUxXzqB+Rz4Wo3CvDnlvoe4/gRFf3n7IHNhZiyITJSm5H
+TIkVefeXfUL7Iftds+k+Rkm5gPnKj7azXDpnf3F0ao73S65YtFfCkI5EGxKd5uK23dHcT4gjBGE3
+K5ZLeueHhphKzt8zAaKRm78QCjynL+F716mlRw==</ds:SignatureValue><ds:KeyInfo Id="KI-7DF136BBB9F24278A11501891747179453638"><wsse:SecurityTokenReference wsu:Id="STR-7DF136BBB9F24278A11501891747179453639"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=10,OU=kdu,O=kdu,L=Santiago,ST=Chile,C=CL</ds:X509IssuerName><ds:X509SerialNumber>1449520866</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></wsse:SecurityTokenReference></ds:KeyInfo></ds:Signature></wsse:Security></soap:Header><soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="id-302396"><ns2:initTransactionResponse xmlns:ns2="http://service.wswebpay.webpay.transbank.com/"><return><token>e41cf5e0dfb4ef2c88087eedae091f3c9d1ada5e64fef2e3cbd38661a3687b03</token><url>https://webpay3gint.transbank.cl/filtroUnificado/initTransaction</url></return></ns2:initTransactionResponse></soap:Body></soap:Envelope>
+
+00:09:07 - initTransaction response - <?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1"><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="SIG-302397"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/></ds:CanonicalizationMethod><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference URI="#id-302396"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList=""/></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>oE4S7cKn85aOtSHXsSfb9kbGpaw=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>Wv5l1GXXJugefLvQF8btF510w60yl+3NLu1XhJAqF1qdfiNHvyifhWp/1XWZgcvGPWLfZW3HFVhg
+NtsiBTyjdbG0YDJlMfu9c5WaFIQIKH9JQw3yVjhF14rgW4eKmoQ0GPArC1y6DAM10Ut6ZGPKvept
+hSiMoKdnV73SK+D7xvemXFlmTOPQGlKGUxXzqB+Rz4Wo3CvDnlvoe4/gRFf3n7IHNhZiyITJSm5H
+TIkVefeXfUL7Iftds+k+Rkm5gPnKj7azXDpnf3F0ao73S65YtFfCkI5EGxKd5uK23dHcT4gjBGE3
+K5ZLeueHhphKzt8zAaKRm78QCjynL+F716mlRw==</ds:SignatureValue><ds:KeyInfo Id="KI-7DF136BBB9F24278A11501891747179453638"><wsse:SecurityTokenReference wsu:Id="STR-7DF136BBB9F24278A11501891747179453639"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=10,OU=kdu,O=kdu,L=Santiago,ST=Chile,C=CL</ds:X509IssuerName><ds:X509SerialNumber>1449520866</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></wsse:SecurityTokenReference></ds:KeyInfo></ds:Signature></wsse:Security></soap:Header><soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="id-302396"><ns2:initTransactionResponse xmlns:ns2="http://service.wswebpay.webpay.transbank.com/"><return><token>e41cf5e0dfb4ef2c88087eedae091f3c9d1ada5e64fef2e3cbd38661a3687b03</token><url>https://webpay3gint.transbank.cl/filtroUnificado/initTransaction</url></return></ns2:initTransactionResponse></soap:Body></soap:Envelope>
+
+00:09:48 - transactionResult request  - <?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://service.wswebpay.webpay.transbank.com/"><SOAP-ENV:Body><ns1:getTransactionResult><tokenInput>e41cf5e0dfb4ef2c88087eedae091f3c9d1ada5e64fef2e3cbd38661a3687b03</tokenInput></ns1:getTransactionResult></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+00:09:48 - transactionResult response - <?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1"><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="SIG-244638"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/></ds:CanonicalizationMethod><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference URI="#id-244637"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList=""/></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>RiqoEFLv5MSXNYoyvxZ/7UrL3dU=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>G5I+03QeMq8s9BycTNn35mF86DykXyR6TPrpmUS2WV9SF/jhbc/Cqtw7AeQpFIQ4n8gFX6Un/clE
+aM2R1FZoELHttSy6T+uYYzYqhsA3zTOdag7rbLb092P/DW2PQZq/UnqjivU7rfnkEJjprQPPWd2Y
+jtNsSmse9O1E9u0DdvRGrvLvZTBrfr+l1TUheHzisrau5lLJ4gmrmMWe5uCtPcxdoaON6kfDRMkS
++KHKoweQ/+V7mZl23/c6WbmtFtVpGe+8APiuRiJ29rT7w9drBq4xiwYemIbW+oFE8rHDzjyNx5Tf
+rqg8rH9h/CEg8cDe8T6N3eOJDmVvmqkpDXlMKg==</ds:SignatureValue><ds:KeyInfo Id="KI-BA1EF8A8C5ED5D4E6C1501891788264366971"><wsse:SecurityTokenReference wsu:Id="STR-BA1EF8A8C5ED5D4E6C1501891788264366972"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=10,OU=kdu,O=kdu,L=Santiago,ST=Chile,C=CL</ds:X509IssuerName><ds:X509SerialNumber>1449520866</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></wsse:SecurityTokenReference></ds:KeyInfo></ds:Signature></wsse:Security></soap:Header><soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="id-244637"><ns2:getTransactionResultResponse xmlns:ns2="http://service.wswebpay.webpay.transbank.com/"><return><accountingDate>0804</accountingDate><buyOrder>000000576</buyOrder><cardDetail><cardNumber>6623</cardNumber></cardDetail><detailOutput><sharesNumber>0</sharesNumber><amount>21990</amount><commerceCode>597020000541</commerceCode><buyOrder>000000576</buyOrder><authorizationCode>1213</authorizationCode><paymentTypeCode>VN</paymentTypeCode><responseCode>0</responseCode></detailOutput><transactionDate>2017-08-04T20:09:07.020-04:00</transactionDate><urlRedirection>https://webpay3gint.transbank.cl/filtroUnificado/voucher.cgi</urlRedirection><VCI>TSY</VCI></return></ns2:getTransactionResultResponse></soap:Body></soap:Envelope>
+
+00:09:50 - acknowledgeTransaction request  - <?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://service.wswebpay.webpay.transbank.com/"><SOAP-ENV:Body><ns1:acknowledgeTransaction><tokenInput>e41cf5e0dfb4ef2c88087eedae091f3c9d1ada5e64fef2e3cbd38661a3687b03</tokenInput></ns1:acknowledgeTransaction></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+00:09:50 - acknowledgeTransaction response - <?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1"><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="SIG-244640"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/></ds:CanonicalizationMethod><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference URI="#id-244639"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList=""/></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>2ElGPC910rjeEzgWhRhIDU36tNw=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>ez3nHgmFWTqXBWYotMHqo2ccnwtpyn9XH+yeWouoxgSYroKHV3V0CfPYRTfpluJReSzRUTCWl28o
+ZCmfraj+zualWiLRKcnxwMwLd5DBBnPFt9rzsdwxVcEwSFVFLwZbv4cDpEqWPLpcCDyvaT/aJvY4
+qEdB9M0njUdYhBd4hiZofvcaxlMFx/YJPwFmsyNJ5Bjc/XM4WlTY6fO+75ulovMG/ZkXmXdWk6vD
+mHOCEDzky9kamY155vGxONr7f1kxzC1rNbS8srcX7yZS6uxqLSCNGkoCea7jbMwhG1AJh8Rgalgd
+HUXu6HLSNjshAuF6Qv8Y8bBBH/Ymu1lpmLszGA==</ds:SignatureValue><ds:KeyInfo Id="KI-BA1EF8A8C5ED5D4E6C1501891789723366974"><wsse:SecurityTokenReference wsu:Id="STR-BA1EF8A8C5ED5D4E6C1501891789723366975"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=10,OU=kdu,O=kdu,L=Santiago,ST=Chile,C=CL</ds:X509IssuerName><ds:X509SerialNumber>1449520866</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></wsse:SecurityTokenReference></ds:KeyInfo></ds:Signature></wsse:Security></soap:Header><soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="id-244639"><ns2:acknowledgeTransactionResponse xmlns:ns2="http://service.wswebpay.webpay.transbank.com/"/></soap:Body></soap:Envelope>
+
+22:10:24 - datos request initTransaction 
+Array
+(
+    [wSTransactionType] => TR_NORMAL_WS
+    [commerceId] => 
+    [buyOrder] => 000000577
+    [sessionId] => 
+    [returnURL] => http://kivulqa.xpectrumtech.com/webpay/payment/response
+    [finalURL] => http://kivulqa.xpectrumtech.com/webpay/payment/success
+    [transactionDetails] => Array
+        (
+            [commerceCode] => 597020000541
+            [buyOrder] => 000000577
+            [amount] => 201980
+        )
+
+)
+
+22:10:26 - initTransaction request  - <?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1"><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="SIG-246636"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/></ds:CanonicalizationMethod><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference URI="#id-246635"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList=""/></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>7uHJ11qjm/w0lVRdglG/X2LPNcY=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>QjtUuxaNyOdsK5LUo5Qh/OfvW2A35q3Sc6P3/ZGP1ii87XmCcQCTLR9ivsJoQswfNA/bvIFf+Zhf
+bFf/IuxbLX9n6U9aAlkDTvBxzahxeh4k/HZjiNfDS/55W05X7CP2b/qupAbdSdAFgIAVzF27Sy4f
+OJj0UMQBkl5ShZuebS2Z+NwGT5hOLbaWlSeXzkNkpoElTR9f0Kd3NO8kJgV7oiOomg5oyAcGCMRW
+ujIR30R9gs8OE2sa2WQWRk9MpeOjFaDu4SnzD+Hhwx6vZaFNi0hyJS7k9DmprwaFX1xC+/SZ1j6m
+0Vr4SiZ/trXp9DKSReXO3VERngaVkTk/ZZ7e6g==</ds:SignatureValue><ds:KeyInfo Id="KI-BA1EF8A8C5ED5D4E6C1501971025885369968"><wsse:SecurityTokenReference wsu:Id="STR-BA1EF8A8C5ED5D4E6C1501971025885369969"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=10,OU=kdu,O=kdu,L=Santiago,ST=Chile,C=CL</ds:X509IssuerName><ds:X509SerialNumber>1449520866</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></wsse:SecurityTokenReference></ds:KeyInfo></ds:Signature></wsse:Security></soap:Header><soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="id-246635"><ns2:initTransactionResponse xmlns:ns2="http://service.wswebpay.webpay.transbank.com/"><return><token>ef10671a347b7a14ab7c5f250f072008bd3d790ed0b18fe45ac72f0ddf2021f3</token><url>https://webpay3gint.transbank.cl/filtroUnificado/initTransaction</url></return></ns2:initTransactionResponse></soap:Body></soap:Envelope>
+
+22:10:26 - initTransaction response - <?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1"><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="SIG-246636"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/></ds:CanonicalizationMethod><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference URI="#id-246635"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList=""/></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>7uHJ11qjm/w0lVRdglG/X2LPNcY=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>QjtUuxaNyOdsK5LUo5Qh/OfvW2A35q3Sc6P3/ZGP1ii87XmCcQCTLR9ivsJoQswfNA/bvIFf+Zhf
+bFf/IuxbLX9n6U9aAlkDTvBxzahxeh4k/HZjiNfDS/55W05X7CP2b/qupAbdSdAFgIAVzF27Sy4f
+OJj0UMQBkl5ShZuebS2Z+NwGT5hOLbaWlSeXzkNkpoElTR9f0Kd3NO8kJgV7oiOomg5oyAcGCMRW
+ujIR30R9gs8OE2sa2WQWRk9MpeOjFaDu4SnzD+Hhwx6vZaFNi0hyJS7k9DmprwaFX1xC+/SZ1j6m
+0Vr4SiZ/trXp9DKSReXO3VERngaVkTk/ZZ7e6g==</ds:SignatureValue><ds:KeyInfo Id="KI-BA1EF8A8C5ED5D4E6C1501971025885369968"><wsse:SecurityTokenReference wsu:Id="STR-BA1EF8A8C5ED5D4E6C1501971025885369969"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=10,OU=kdu,O=kdu,L=Santiago,ST=Chile,C=CL</ds:X509IssuerName><ds:X509SerialNumber>1449520866</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></wsse:SecurityTokenReference></ds:KeyInfo></ds:Signature></wsse:Security></soap:Header><soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="id-246635"><ns2:initTransactionResponse xmlns:ns2="http://service.wswebpay.webpay.transbank.com/"><return><token>ef10671a347b7a14ab7c5f250f072008bd3d790ed0b18fe45ac72f0ddf2021f3</token><url>https://webpay3gint.transbank.cl/filtroUnificado/initTransaction</url></return></ns2:initTransactionResponse></soap:Body></soap:Envelope>
+
+22:15:39 - datos request initTransaction 
+Array
+(
+    [wSTransactionType] => TR_NORMAL_WS
+    [commerceId] => 
+    [buyOrder] => 000000578
+    [sessionId] => 
+    [returnURL] => http://kivulqa.xpectrumtech.com/webpay/payment/response
+    [finalURL] => http://kivulqa.xpectrumtech.com/webpay/payment/success
+    [transactionDetails] => Array
+        (
+            [commerceCode] => 597020000541
+            [buyOrder] => 000000578
+            [amount] => 101990
+        )
+
+)
+
+22:15:46 - initTransaction request  - <?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1"><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="SIG-304391"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/></ds:CanonicalizationMethod><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference URI="#id-304390"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList=""/></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>GYyvBNMhWVTvcPzV5BPcBJgKrIc=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>b9Grq572qPl/uoGCNS7sT0I0kZmb+lorkhoXpK82dp6Z17CDHEopEWRRIacl6chYplSmD/3EJgre
+CrqE+sRrxnJRtwOEXBKxWlokxVoBwTHIFTGBSVSXJKS9yo1wdqu8rc119GjyMT4YxxcNWIc5jz5q
+lcio5SoJTNBg7riTRuL6zLcF7uYIgzEg5TbLKLswtmhOsw1ZOiIuft80q1TB7ifj8JKRJP0oXl3h
+XBp6kvpflwhJvHTjAMGe5s4M2eOwHBA0sNXjYp9h2BvE3aKC9Q+9oFnNT0bK90LApXIw7VB6V7e5
+049owf5u/Qouk94cH+w2LSF0KsVWvzedEhDD+Q==</ds:SignatureValue><ds:KeyInfo Id="KI-7DF136BBB9F24278A11501971346761456629"><wsse:SecurityTokenReference wsu:Id="STR-7DF136BBB9F24278A11501971346761456630"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=10,OU=kdu,O=kdu,L=Santiago,ST=Chile,C=CL</ds:X509IssuerName><ds:X509SerialNumber>1449520866</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></wsse:SecurityTokenReference></ds:KeyInfo></ds:Signature></wsse:Security></soap:Header><soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="id-304390"><ns2:initTransactionResponse xmlns:ns2="http://service.wswebpay.webpay.transbank.com/"><return><token>ea7c2931619d9611b0da282aa17d50f7e5fe42f8826755f925d2296803c32a42</token><url>https://webpay3gint.transbank.cl/filtroUnificado/initTransaction</url></return></ns2:initTransactionResponse></soap:Body></soap:Envelope>
+
+22:15:46 - initTransaction response - <?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1"><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="SIG-304391"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/></ds:CanonicalizationMethod><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference URI="#id-304390"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList=""/></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>GYyvBNMhWVTvcPzV5BPcBJgKrIc=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>b9Grq572qPl/uoGCNS7sT0I0kZmb+lorkhoXpK82dp6Z17CDHEopEWRRIacl6chYplSmD/3EJgre
+CrqE+sRrxnJRtwOEXBKxWlokxVoBwTHIFTGBSVSXJKS9yo1wdqu8rc119GjyMT4YxxcNWIc5jz5q
+lcio5SoJTNBg7riTRuL6zLcF7uYIgzEg5TbLKLswtmhOsw1ZOiIuft80q1TB7ifj8JKRJP0oXl3h
+XBp6kvpflwhJvHTjAMGe5s4M2eOwHBA0sNXjYp9h2BvE3aKC9Q+9oFnNT0bK90LApXIw7VB6V7e5
+049owf5u/Qouk94cH+w2LSF0KsVWvzedEhDD+Q==</ds:SignatureValue><ds:KeyInfo Id="KI-7DF136BBB9F24278A11501971346761456629"><wsse:SecurityTokenReference wsu:Id="STR-7DF136BBB9F24278A11501971346761456630"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=10,OU=kdu,O=kdu,L=Santiago,ST=Chile,C=CL</ds:X509IssuerName><ds:X509SerialNumber>1449520866</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></wsse:SecurityTokenReference></ds:KeyInfo></ds:Signature></wsse:Security></soap:Header><soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="id-304390"><ns2:initTransactionResponse xmlns:ns2="http://service.wswebpay.webpay.transbank.com/"><return><token>ea7c2931619d9611b0da282aa17d50f7e5fe42f8826755f925d2296803c32a42</token><url>https://webpay3gint.transbank.cl/filtroUnificado/initTransaction</url></return></ns2:initTransactionResponse></soap:Body></soap:Envelope>
+

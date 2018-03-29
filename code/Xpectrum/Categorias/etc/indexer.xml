@@ -1,0 +1,6 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Indexer/etc/indexer.xsd">
+  <indexer id="xpec_price_product_index" view_id="xpec_price_product_index" class="Xpectrum\Categorias\Model\Indexer\XpecProductPrice">
+    <title translate="true">Xpec Product Price</title>
+    <description translate="true">Obtiene el precio del sku child</description>
+  </indexer>
+</config>

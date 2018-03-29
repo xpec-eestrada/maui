@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="css/maui.css" />
+        <link src="js/general.js" />
+    </head>
+    <body>
+        <!-- Header -->
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo.png</argument>
+                <argument name="logo_img_width" xsi:type="number">81</argument>
+                <argument name="logo_img_height" xsi:type="number">81</argument>
+            </arguments>
+        </referenceBlock>
+        
+        <referenceBlock name="header.panel.wrapper" remove="true"/>
+        
+        <container name="xpec-top-panel" label="Top Panel XPEC" htmlTag="div" htmlClass="xpec-top-panel">
+            <container name="container" label="Container" htmlTag="div" htmlClass="xpec-container">
+                <container name="xpec-top-panel-ul" label="XPEC Top Panel UL" htmlTag="ul">
+                    <block class="Magento\Framework\View\Element\Template" name="xpec-top-panel-ul-li" template="Magento_Theme::html/xpec-top-panel.phtml"/>
+                </container>
+            </container>
+        </container>
+        
+        <move element="xpec-top-panel" destination="header.container" before="header-wrapper" />
+        <move element="customer" destination="xpec-top-panel-ul" after="xpec-top-panel-ul-li" />
+        
+        <move element="multiple-wish-list-link" destination="xpec-top-panel-ul" before="minicart" />
+        <move element="minicart" destination="xpec-top-panel-ul"  after="-" />
+        
+        <move element="catalog.topnav" destination="store.menu" after="-" />
+        <move element="navigation.sections" destination="header-wrapper" after="-" />
+        
+        <!-- Footer -->
+        <referenceContainer name="footer">
+            <referenceBlock name="footer_links" remove="true" />
+            <referenceBlock name="form.subscribe" remove="true" />
+            <block class="Magento\Framework\View\Element\Template" name="xpec-footer1" template="Magento_Theme::html/xpec-footer.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

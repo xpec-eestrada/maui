@@ -1,0 +1,18 @@
+18:07:48 - datos request initTransaction 
+Array
+(
+    [wSTransactionType] => TR_MALL_WS
+    [commerceId] => 3300387
+    [buyOrder] => 000000022
+    [sessionId] => 
+    [returnURL] => http://maui.xpectrumtech.com/webpay/payment/response
+    [finalURL] => http://maui.xpectrumtech.com/webpay/payment/success
+    [transactionDetails] => Array
+        (
+            [commerceCode] => 597020000542
+            [buyOrder] => 000000022
+            [amount] => 23793.1
+        )
+
+)
+
