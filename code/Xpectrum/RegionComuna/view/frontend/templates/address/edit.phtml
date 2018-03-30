@@ -5,6 +5,11 @@
  * @var $block \Xpectrum\AtributoAdicional\Block\Address\Edit
  */
 ?>
+<style>
+    .form-address-edit #region_id{
+        display:block;
+    }
+</style>
 <form class="form-address-edit" action="<?php /* @escapeNotVerified */ echo $block->getSaveUrl() ?>" method="post" id="form-validate" enctype="multipart/form-data" data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>">
     <fieldset class="fieldset">
         <legend class="legend"><span><?php /* @escapeNotVerified */ echo __('Contact Information') ?></span></legend><br>
@@ -68,27 +73,18 @@
                 <input type="text" name="city" value="<?php echo $block->escapeHtml($block->getAddress()->getCity()) ?>" title="<?php /* @escapeNotVerified */ echo __('City') ?>" class="input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('city') ?>" id="city">
             </div>
         </div>
-        <div class="field region required">
-            <label class="label" for="region_id"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
-            <div class="control">
-                <select id="region_id" name="region_id" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="validate-select" <?php echo(!$block->getConfig('general/region/display_all')) ? ' disabled="disabled"' : '';?>>
-                    <option value=""><?php /* @escapeNotVerified */ echo __('Please select a region, state or province.') ?></option>
-                </select>
-                <input type="text" id="region" name="region" value="<?php echo $block->escapeHtml($block->getRegion()) ?>"  title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('region') ?>"<?php echo(!$block->getConfig('general/region/display_all')) ? ' disabled="disabled"' : '';?>/>
-            </div>
-        </div>
-        <div class="field xpec_comuna required">
-            <label class="label" for="xpec_comuna"><span>Comuna</span></label>
+        <div class="field xpec_region required">
+            <label class="label" for="xpec_region"><span><?php /* @escapeNotVerified */ echo __('Región') ?></span></label>
             <div class="control">
             <?php   ?>
-                <select id="xpec_comuna" data-validate="{required:true}" name="xpec_comuna" title="Comuna" class="" aria-required="true" defaultvalue="0" style="display: inline-block;">
+                <select id="xpec_region" data-validate="{required:true}" name="xpec_region" title="Región" class="" aria-required="true" defaultvalue="0" style="display: inline-block;">
                     <option value="">Seleccione Región.</option>
                     <?php 
-                        $options=$block->getComunasByRegion();
-                        $comuna_id=$block->getComunaId();;
+                        $options=$block->getRegion();
+                        $region_id=$block->getRegionId();
                         foreach($options as $option){
-                            if(isset($comuna_id) && !empty($comuna_id)){
-                                if($option['value']==$comuna_id){
+                            if(isset($region_id) && !empty($region_id)){
+                                if($option['value']==$region_id){
                                     echo '<option selected=\'selected\' value=\''.$option['value'].'\'>'.$option['label'].'</option>';
                                 }else{
                                     echo '<option value=\''.$option['value'].'\'>'.$option['label'].'</option>';
@@ -101,6 +97,31 @@
                 </select>
             </div>
         </div>
+        <div class="field region required">
+            <label class="label" for="region_id"><span><?php /* @escapeNotVerified */ echo __('Comuna') ?></span></label>
+            <div class="control">
+                <select id="region_id" name="region_id" title="<?php /* @escapeNotVerified */ echo __('Comuna') ?>" class="validate-select" <?php echo(!$block->getConfig('general/region/display_all')) ? ' disabled="disabled"' : '';?>>
+                    <option value=""><?php /* @escapeNotVerified */ echo __('Seleccione Comuna.') ?></option>
+                    <?php 
+                        $comuna_id = $block->getComunaId();
+                        $arrcomunas = $block->getComunasByRegion();
+                        foreach($arrcomunas as $item){
+                            if(isset($comuna_id) && !empty($comuna_id)){
+                                if($item['value']==$comuna_id){
+                                    echo '<option selected=\'selected\' value="'.$item['value'].'" >'.$item['label'].'</option>';
+                                }else{
+                                    echo '<option value="'.$item['value'].'" >'.$item['label'].'</option>';
+                                }
+                            }else{
+                                echo '<option value="'.$item['value'].'" >'.$item['label'].'</option>';
+                            }
+                        }
+                    ?>
+                </select>
+                <input type="hidden" id="region" name="region" value=""  title="" class="input-text <?php echo $this->helper(\Magento\Framework\EscapeHelper::class)->escapeHtmlAttr($this->helper(\Magento\Customer\Helper\Address::class)->getAttributeValidationClass('region')) ?>"<?php echo(!$block->getConfig('general/region/display_all')) ? ' disabled="disabled"' : '';?>/>
+            </div>
+        </div>
+        
         <div class="field zip required">
             <label class="label" for="zip"><span><?php /* @escapeNotVerified */ echo __('Zip/Postal Code') ?></span></label>
             <div class="control">
@@ -147,22 +168,49 @@
         </div>
     </div>
 </form>
-<script type="text/x-magento-init">
-    {
-        "#form-validate": {
-            "validation": {}
-        },
-        "#country": {
-            "regionUpdater": {
-                "optionalRegionAllowed": <?php /* @escapeNotVerified */ echo($block->getConfig('general/region/display_all') ? 'true' : 'false'); ?>,
-                "regionListId": "#region_id",
-                "regionInputId": "#region",
-                "postcodeId": "#zip",
-                "form": "#form-validate",
-                "regionJson": <?php /* @escapeNotVerified */ echo $this->helper('Magento\Directory\Helper\Data')->getRegionJson() ?>,
-                "defaultRegion": "<?php /* @escapeNotVerified */ echo $block->getRegionId() ?>",
-                "countriesWithOptionalZip": <?php /* @escapeNotVerified */ echo $this->helper('Magento\Directory\Helper\Data')->getCountriesWithOptionalZip(true) ?>
-            }
-        }
-    }
+
+<script>
+    require([
+    "jquery",'domReady!'
+], function($){
+    'use strict';
+    $(document).ready(function($) {
+        var baseUrl = document.location.origin;
+        $("select[name='xpec_region']").change(function(){
+            $("select[name='xpec_region']").attr("disabled","disabled");
+            $("#region_id").attr("disabled","disabled");
+            var id_region = $(this).val();
+            $.ajax({
+                url: baseUrl+'/regioncomunas/index/ajaxcomuna/',
+                data: {
+                    id_region:id_region
+                },
+                type: "POST",
+                dataType: 'json'
+            }).done(function (data) {
+                var options='';
+                if(data.result.length){
+                    $.each(data.result,function(index,item){
+                        options=options+"<option value='"+item.value+"'>"+item.label+"</option>";
+                    });
+                }
+                $("#region_id").html(options);
+                $("select[name='xpec_region']").removeAttr("disabled");
+                $("#region_id").removeAttr("disabled");
+            });
+        });
+        $("#region_id").change(function(){
+            $("input[name='city']").val($(this).find("option:selected").text());
+            var e = jQuery.Event("keyup");
+            e.which = 77; // # Some key code value
+            $("input[name='city']").trigger( e );
+
+            $("input[name='postcode']").val(0);
+            var e = jQuery.Event("keyup");
+            e.which = 77; // # Some key code value
+            $("input[name='city']").trigger( e );
+        });
+    });
+    
+});
 </script>

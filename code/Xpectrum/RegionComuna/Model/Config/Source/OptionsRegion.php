@@ -5,7 +5,7 @@ use Magento\Framework\DB\Ddl\Table;
 /**
 * Custom Attribute Renderer
 */
-class OptionsComunas extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource{
+class OptionsRegion extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource{
     /**
     * @var OptionFactory
     */
@@ -23,7 +23,7 @@ class OptionsComunas extends \Magento\Eav\Model\Entity\Attribute\Source\Abstract
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); // Instance of object manager
         $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
         $connection = $resource->getConnection();
-        $tableName = $resource->getTableName('xpec_comunas');
+        $tableName = $resource->getTableName('xpec_regiones');
         $sql='SELECT id,nombre
                     FROM 
                         '.$tableName.' 

@@ -578,8 +578,8 @@ class InstallData implements InstallDataInterface{
         }
         
 
-        /* Attributo Drop Down List Comunas */
-        $code_attribute     = 'xpec_comuna';
+        /* Attributo Drop Down List Regiones */
+        $code_attribute     = 'xpec_region';
         $attrSet            = $this->_attrSetFactory->create();
         $entity_type        = $this->_eavConfig->getEntityType('customer_address');
         $entity_type_id     = $entity_type->getId();
@@ -592,7 +592,7 @@ class InstallData implements InstallDataInterface{
 
         $customerSetup->addAttribute('customer_address', $code_attribute,  array(
             "type"     => "int",
-            "label"    => "Comunas",
+            "label"    => "Región",
             "input"    => "select",
             "visible"  => true,
             "required" => false,
@@ -601,7 +601,7 @@ class InstallData implements InstallDataInterface{
             'sort_order' => $order,
             "position" => $order,
             'backend' => 'Magento\Eav\Model\Entity\Attribute\Backend\ArrayBackend',
-            'source' => 'Xpectrum\RegionComuna\Model\Config\Source\OptionsComunas',
+            'source' => 'Xpectrum\RegionComuna\Model\Config\Source\OptionsRegion',
             'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE
 
         ));
@@ -628,7 +628,7 @@ class InstallData implements InstallDataInterface{
             ->setData("sort_order", $order);
         $dropdownlist->save();
         $setup->endSetup();
-        /* Attributo Drop Down List Comunas */
+        /* Attributo Drop Down List Region */
 
     }
 }

@@ -8,15 +8,18 @@ require([
         var baseUrl = document.location.origin;
         $('body').mouseover(function(){
             if(!sw){
-                if($("select[name='region_id']").length){
-                    $(document).off("change","select[name='region_id']");
-                    $("select[name='region_id']").change(function(){
+                if($("select[name='xpec_region']").length){
+                    $(document).off("change","select[name='xpec_region']");
+                    $("select[name='xpec_region']").change(function(){
+
                         $("input[name='postcode']").val('0');
                         var e = jQuery.Event("keyup");
                         e.which = 77; // # Some key code value
                         $("input[name='postcode']").trigger( e );
+
+                        $("select[name='xpec_region']").attr('disabled','disabled');
                         $("select[name='region_id']").attr('disabled','disabled');
-                        $("select[name='xpec_comuna']").attr('disabled','disabled');
+                        
                         var id_region=$(this).val();
                         $.ajax({
                             url: baseUrl+'/regioncomunas/index/ajaxcomuna/',
@@ -32,12 +35,13 @@ require([
                                     options=options+"<option value='"+item.value+"'>"+item.label+"</option>";
                                 });
                             }
-                            $("select[name='xpec_comuna']").html(options);
+
+                            $("select[name='region_id']").html(options);
+                            $("select[name='xpec_region']").removeAttr("disabled");
                             $("select[name='region_id']").removeAttr("disabled");
-                            $("select[name='xpec_comuna']").removeAttr("disabled");
                         });
                     });
-                    $("select[name='xpec_comuna']").change(function(){
+                    $("select[name='region_id']").change(function(){
                         $("input[name='city']").val($(this).find("option:selected").text());
                         var e = jQuery.Event("keyup");
                         e.which = 77; // # Some key code value
